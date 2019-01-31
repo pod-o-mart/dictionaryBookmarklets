@@ -1,0 +1,14 @@
+#texto {
+height:140px !important;
+width:30% !important;
+}
+
+#texto2, #texto3 {
+height:140px !important;
+width:80% !important;
+}
+
+.bigger {
+display:none !important;
+}
+

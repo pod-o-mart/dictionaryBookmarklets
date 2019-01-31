@@ -1,0 +1,228 @@
+#ordbog  {
+	all:initial;
+}
+
+input {
+	width:auto!important;
+}
+
+#ordbog, .ordbog-indhold, #ordbogform, #inputordbog, #texto, #texto2, #texto3, .oben, .spantitle, .linktitle, input#texto, input#texto2, input#texto3, .lupe, .spantitle, .spansubtitle, .dictsubtitle {
+	font: normal normal 18px verdana, sans-serif !important;
+}
+
+textarea {
+
+	margin: 0 auto;
+  position: relative;
+}
+
+table, td {
+   
+}
+
+td {
+	width:50%;
+	 position: relative;
+}
+
+
+#ordbog {
+	display: block;
+	text-align:left;
+	position: fixed;
+	z-index: 9999;
+	padding-top: 100px;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgba(0,0,0,0.4);
+	margin: auto;
+	direction: ltr !important;
+
+}
+
+.ordbog-indhold {
+	background-color: #26374D;
+	text-align:left;
+	margin: auto;
+	width: 75%;
+	padding: 5px;
+	border: 3px solid black;
+	border-radius: 10px;
+	box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+}
+
+.luk, .minimer {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.luk:hover,
+.luk:focus,
+.minimer:hover,
+.minimer:focus {
+	color: white;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+#ordbogform, #ordbogform:active, #ordbogform:focus, #ordbogform:hover, #ordbogform:visited {
+	background-color:#26374D;
+	text-align:justify;
+}
+
+#inputordbog, #inputordbog:active, #inputordbog:visited, #texto, #texto2, #texto3, select {
+	border: 1px solid black;
+	border-radius:4px;
+	border-width: 1px;
+	border-collapse: separate;
+	background-color:#ccc;
+	cursor: pointer;
+}
+
+#ordbogform, #inputordbog, #ordbogform:active, #inputordbog:active, #ordbogform:focus, #inputordbog:focus, #ordbogform:hover, #inputordbog:hover, #ordbogform:visited, #ordbogform:visited {
+	text-align:left;
+	margin: 1px;
+	padding: 3px !important;
+	font: normal normal normal 12px verdana, sans-serif !important;
+	color:initial;
+	box-shadow:none;
+	min-height: 0;
+	transition: none;
+	}
+
+#inputordbog:hover {
+	background-color:white;
+}
+
+#inputordbog:active {
+	background-color:gray;
+	color:white;
+}
+
+#ordbogform {
+	overflow:hidden;
+}
+
+#texto2, #texto3 {
+position:relattve;
+	background-color:white;
+	cursor:text;
+	height:32px;
+	width:80%;
+}
+
+#texto {
+margin-right:10px;
+	background-color:white;
+	cursor:text;
+	height:32px;
+	width:30%;
+}
+
+#texto2 {
+margin-left:0;
+}
+
+.oben {
+	display:block;
+	margin-bottom:5px;
+}
+
+.spantitle {
+padding: 0;
+color: lightgrey;
+width:100%;
+	font-weight: bold !important;
+}
+
+a.linktitle {
+padding: 0;
+background-color: #26374D;
+text-decoration: underline;
+color:grey;
+font: normal normal bold 10px verdana, sans-serif !important;
+float:right;
+white-space:nowrap;
+margin-top:15px;
+}
+
+a.linktitle:hover, a.linktitle:focus {
+
+background-color: #26374D !important;
+text-decoration: none;
+color:lightgrey;
+font-weight:normal;
+font: normal normal bold 10px verdana, sans-serif !important;
+}
+
+p.lupe {
+margin:0;
+padding:0;
+border:0;
+float:left;
+position:relative;
+bottom:0;
+font-size:24px;
+color:white;
+}
+
+.lupe, .spantitle {
+text-shadow: 3px 2px 10px black;
+}
+
+.spantitle {
+padding-left:20px;
+}
+
+.spansubtitle {
+padding-left:20px;
+color:lightgrey;
+font: normal normal bold 10px verdana, sans-serif !important;
+display:inline;
+text-shadow: 3px 2px 10px black;
+}
+
+.dictsubtitle {
+margin-top:7px;
+margin-bottom:7px;
+color:lightgrey;
+font: normal normal bold 10px verdana, sans-serif !important;
+//display:block;
+text-align:left;
+text-shadow: 3px 2px 10px black;
+}
+
+.sprachindikator {
+margin-top:7px;
+margin-bottom:7px;
+color:lightgrey;
+font: normal normal bold 10px verdana, sans-serif !important;
+display:inline;
+text-shadow: 3px 2px 10px black;
+}
+
+#ordbogklein {
+	background-color: #26374D;
+	z-index:999;
+	position: fixed;
+	top:0;
+	right:0;
+	border-left: 3px solid black;
+	border-bottom: 3px solid black;
+	border-top:0;
+	border-right:0;
+	border-radius:0 0 0 10px;
+	box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+	padding:20px;
+}
+
+#ordbogklein a {
+	color:white;
+	font-size:16px;
+	font-weight:bold;
+}
