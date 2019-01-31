@@ -10,11 +10,11 @@
 In order to use the dictionary (and transliteration) bookmarklets on your own server, website or computer, you need to
 
   1.  Download following files from this directory and place them together into the directory of your choice:
-    - keyboard.js
-    - keyboard.css
-    - style.css
-    - bigger.css
-    - LANGUAGE.js
+ - `keyboard.js`
+ - `keyboard.css`
+ - `style.css`
+ - `bigger.css`
+ - `LANGUAGE.js`
 
   2. Create a  bookmark in your browser. Call it whatever you want and use following line as the URL:
   
