@@ -32,7 +32,7 @@ var VKI_attach, VKI_close;
 
 //  var CssURI=params[0]+".css";
 //  var CssURI="https://podolak.net/doc/keyboard/keyboard2.js.css";
-  var CssURI="https://podolak.net/doc/bookmarklets/dicts/keyboard.css";
+  var CssURI="https://languagebookmarklet.de/keyboard/keyboard.css";
   var self = this;
   this.VKI_version = "1.44";
   this.VKI_showVersion = false;
