@@ -10,7 +10,7 @@
 In order to use the dictionary (and transliteration) bookmarklets on your own server, website or computer, you need to
 
   1.  Download following files from this directory and place them together into the directory of your choice:
- - `keyboard.js` (respectively `keyboard-yi.js` for Yiddish)
+ - `keyboard.js` (respectively `keyboard-yi.js` for Yiddish or `keyboard-ocs.js` for Old Church Slavonic)
  - `keyboard.css`
  - `style.css`
  - `bigger.css`
