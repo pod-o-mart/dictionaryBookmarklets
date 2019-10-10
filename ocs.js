@@ -2,6 +2,7 @@
 // Based on the Russian bookmarklet
 // V 1.0 - 2018-05-20: With transliteration function
 // V 1.1 - 2018-06-08: New dictionaries: academic.ru, Словарь древнерусского языка (XI—XIV вв.); numerals converter. Minor bugfixes
+// V 1.2 - 2019-10-10: New keyboard codepage, dictionary address updates, minor bugfixes
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
@@ -105,7 +106,7 @@ var f = t.toString();
 	}
 
 inddata.id="texto";
-s=document.createElement('script');s.id='r6109_vkbsgp';s.type='text/javascript';s.src=ordbogurl+'keyboard.js?,true,false';document.body.appendChild(s);void(null);
+s=document.createElement('script');s.id='r6109_vkbsgp';s.type='text/javascript';s.src=ordbogurl+'keyboard-ocs.js?,true,false';document.body.appendChild(s);void(null);
 inddata.setAttribute("class", "keyboardInput");
 inddata.value =t;
 inddata.id="texto";
@@ -323,7 +324,6 @@ var br3 = document.createElement('br');
 var translitinput = document.createElement('select');
 translitinput.setAttribute("id", "translitinput");
 translitinput.setAttribute("name", "translitinput");
-translitinput.setAttribute("style", "font-size:8px;");
 
 var translitinputgroup = document.createElement('optgroup');
 translitinputgroup.setAttribute("label", "Source: ");
@@ -363,7 +363,6 @@ translitinput.appendChild(translitinputoption5);
 var translitoutput = document.createElement('select');
 translitoutput.setAttribute("id", "translitoutput");
 translitoutput.setAttribute("name", "translitoutput");
-translitoutput.setAttribute("style", "font-size:8px;");
 
 var translitoutputgroup = document.createElement('optgroup');
 translitoutputgroup.setAttribute("label", "Target: ");
@@ -510,9 +509,9 @@ ordbogform.appendChild(input23);
 ordbogform.appendChild(input25);
 ordbogform.appendChild(input26);
 ordbogform.appendChild(input18);
-ordbogform.appendChild(grammatik_title);
-ordbogform.appendChild(input60);
-ordbogform.appendChild(input61);
+//ordbogform.appendChild(grammatik_title);
+//ordbogform.appendChild(input60);
+//ordbogform.appendChild(input61);
 ordbogform.appendChild(korpora_title);
 ordbogform.appendChild(input27);
 ordbogform.appendChild(input28);
