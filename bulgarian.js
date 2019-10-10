@@ -2,6 +2,7 @@
 // V 1.0 - 2016-08-04
 // V 1.1 - 2017-01-09: new minimize function, enlarge input field option
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
+// V 1.3 - 2019-10-10: Dictionary address updates
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
@@ -14,10 +15,10 @@ sc = document.getElementsByTagName("script");
 for(idx = 0; idx < sc.length; idx++)
 {
  s = sc.item(idx);
- if(s.src && s.src.match(/bulgarian\.js$/))
+ if(s.src && s.src.match(/bulgarianneu\.js$/))
  {
 	var ordbogurl =s.src;
-	ordbogurl = ordbogurl.replace("bulgarian.js", "");
+	ordbogurl = ordbogurl.replace("bulgarianneu.js", "");
 	}
 }
 
@@ -146,15 +147,15 @@ input5.onclick = function(){suche('http://enbg.dict.cc/?s=');return false;};
 
 var input6 = document.createElement("input");
 input6.type = "button";
-input6.value = "EuroDict DE ⇔ BG";
+input6.value = "Lingea DE ⇔ BG";
 input6.id = "inputordbog";
-input6.onclick = function(){suche('http://www.bulgariandictionary.com/search.php?go=Превод&ok=1&diction=ed_bg_de&lang=BG&word=');return false;};
+input6.onclick = function(){suche('https://www.dict.com/немско-български/');return false;};
 
 var input7 = document.createElement("input");
 input7.type = "button";
-input7.value = "EuroDict EN ⇔ BG";
+input7.value = "Lingea EN ⇔ BG";
 input7.id = "inputordbog";
-input7.onclick = function(){suche('http://www.bulgariandictionary.com/search.php?go=%D0%9F%D1%80%D0%B5%D0%B2%D0%BE%D0%B4&ok=1&diction=ed_bg_en&lang=BG&word=');return false;};
+input7.onclick = function(){suche('https://www.dict.com/англииско-български/');return false;};
 
 var input8 = document.createElement("input");
 input8.type = "button";
@@ -208,12 +209,6 @@ input15.type = "button";
 input15.value = "БГжаргон.com";
 input15.id = "inputordbog";
 input15.onclick = function(){suche('http://www.bgjargon.com/word/meaning/');return false;};
-
-var input16 = document.createElement("input");
-input16.type = "button";
-input16.value = "inostran.org RU ⇔ BG";
-input16.id = "inputordbog";
-input16.onclick = function(){suche3('http://www.inostran.org/search.php?l=bol&f=in&n=5267&w=');return false;};
 
 var input18 = document.createElement("input");
 input18.type = "button";
@@ -302,14 +297,14 @@ input30.type = "button";
 input30.value = "Лајпцигски корпус";
 input30.title = "Корпусна система на Лајпцигскијот университет";
 input30.id = "inputordbog";
-input30.onclick = function(){suche('http://corpora.informatik.uni-leipzig.de/de/res?corpusId=mkd_wikipedia_2010&word=');return false;};
+input30.onclick = function(){suche('http://corpora.uni-leipzig.de/en/res?corpusId=mkd_wikipedia_2010&word=');return false;};
 
 var input31 = document.createElement("input");
 input31.type = "button";
 input31.value = "Лайпцигски корпус";
 input31.title = "Корпусна система на Лайпцигският университет";
 input31.id = "inputordbog";
-input31.onclick = function(){suche('http://corpora.informatik.uni-leipzig.de/de/res?corpusId=bul_newscrawl_2011&word=');return false;};
+input31.onclick = function(){suche('http://corpora.uni-leipzig.de/en/res?corpusId=bul_newscrawl_2011&word=');return false;};
 
 var input32 = document.createElement("input");
 input32.type = "button";
@@ -564,7 +559,6 @@ ordbogform.appendChild(umbruch2);
 ordbogform.appendChild(bg_ru);
 ordbogform.appendChild(input28);
 ordbogform.appendChild(input13);
-ordbogform.appendChild(input16);
 //ordbogform.appendChild(input19);
 ordbogform.appendChild(umbruch3);
 ordbogform.appendChild(bg_da);
@@ -596,8 +590,8 @@ ordbogform.appendChild(input_hist3);
 ordbogform.appendChild(input_hist4);
 ordbogform.appendChild(input_hist5);
 ordbogform.appendChild(input_hist6);
-ordbogform.appendChild(input_hist7);
-ordbogform.appendChild(input_hist8);
+//ordbogform.appendChild(input_hist7);
+//ordbogform.appendChild(input_hist8);
 
 //	#2 END	///////////////////
 
