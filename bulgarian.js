@@ -2,7 +2,7 @@
 // V 1.0 - 2016-08-04
 // V 1.1 - 2017-01-09: new minimize function, enlarge input field option
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
-// V 1.3 - 2019-10-10: Dictionary address updates
+// V 1.3 - 2019-10-10: Dictionary address updates and bugfix
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
@@ -15,10 +15,10 @@ sc = document.getElementsByTagName("script");
 for(idx = 0; idx < sc.length; idx++)
 {
  s = sc.item(idx);
- if(s.src && s.src.match(/bulgarianneu\.js$/))
+ if(s.src && s.src.match(/bulgarian\.js$/))
  {
 	var ordbogurl =s.src;
-	ordbogurl = ordbogurl.replace("bulgarianneu.js", "");
+	ordbogurl = ordbogurl.replace("bulgarian.js", "");
 	}
 }
 
