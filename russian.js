@@ -2,6 +2,7 @@
 // V 1.0 - 2016-08-04
 // V 1.1 - 2017-01-07: new transliteration function, minimize function, enlarge input field option
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
+// V 1.3 - 2019-10-10: Dictionary address updates
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
@@ -134,7 +135,7 @@ input3.value = 'sbiblio';
 input3.title = "Библиотека учебной и научной литературы — Словари и справочники";
 input3.type = "button";
 input3.id = "inputordbog";
-input3.onclick = function(){suche('http://sbiblio.com/biblio/dict.aspx?d0=on&wh0=0&wh=0&d=11111111111111111111111111111111111111111&key=');return false;};
+input3.onclick = function(){suche3('http://sbiblio.com/biblio/dict.aspx?d0=on&wh0=0&wh=0&d=11111111111111111111111111111111111111111&key=');return false;};
 
 var input4 = document.createElement("input");
 input4.value = 'Gufo.me';
@@ -182,12 +183,6 @@ input10.title = "Словарь ассоциаций";
 input10.type = "button";
 input10.id = "inputordbog";
 input10.onclick = function(){suche3('http://slovesa.ru/assearch?q=');return false;};
-
-var input11 = document.createElement("input");
-input11.value = 'Визуальный словарь';
-input11.type = "button";
-input11.id = "inputordbog";
-input11.onclick = function(){suche('http://search.vslovar.org.ru/s.jsp?v=ozh&ref=&btn=Найти&text=');return false;};
 
 var input12 = document.createElement("input");
 input12.value = 'sokr.ru';
@@ -286,20 +281,6 @@ input25.title = "";
 input25.type = "button";
 input25.id = "inputordbog";
 
-var input26 = document.createElement("input");
-input26.onclick = function(){suche("http://www.lingvo-online.ru/en/Translate/de-ru/");return false;};
-input26.value = "Lingvo RU ⇔ DE";
-input26.title = "";
-input26.type = "button";
-input26.id = "inputordbog";
-
-var input27 = document.createElement("input");
-input27.onclick = function(){suche("http://lingvo.mail.ru/?lang_id=32775&translate=Найти&st=search&text=");return false;};
-input27.value = "Multilex RU ⇔ DE";
-input27.title = "";
-input27.type = "button";
-input27.id = "inputordbog";
-
 var input28 = document.createElement("input");
 input28.onclick = function(){suche("http://en.pons.eu/dict/search/results/?in=&l=deru&q=");return false;};
 input28.value = "Pons RU ⇔ DE";
@@ -335,22 +316,15 @@ input32.title = "";
 input32.type = "button";
 input32.id = "inputordbog";
 
-var input33 = document.createElement("input");
-input33.onclick = function(){suche("http://ru.podge.de/trans.php?p=ru|de&q=");return false;};
-input33.value = "Podge RU ⇔ DE";
-input33.title = "Терминология / Terminologie";
-input33.type = "button";
-input33.id = "inputordbog";
-
 var input34 = document.createElement("input");
-input34.onclick = function(){suche("http://www.ver-dict.ru/online/?base=0&dictionary=rg&word=");return false;};
+input34.onclick = function(){suche("https://www.translate.ru/dictionary/ru-de/");return false;};
 input34.value = "Promt RU ⇒ DE";
 input34.title = "";
 input34.type = "button";
 input34.id = "inputordbog";
 
 var input35 = document.createElement("input");
-input35.onclick = function(){suche("http://www.ver-dict.ru/online/?base=0&dictionary=gr&word=");return false;};
+input35.onclick = function(){suche("https://www.translate.ru/dictionary/de-ru/");return false;};
 input35.value = "Promt DE ⇒ RU";
 input35.title = "";
 input35.type = "button";
@@ -363,33 +337,12 @@ input36.title = "Справочник по метаязыку русских г�
 input36.type = "button";
 input36.id = "inputordbog";
 
-var input37 = document.createElement("input");
-input37.onclick = function(){suche("http://simpledict.com/en/");return false;};
-input37.value = "Simple Dictionary EN ⇔ RU ⇔ DE";
-input37.title = "";
-input37.type = "button";
-input37.id = "inputordbog";
-
 var input38 = document.createElement("input");
 input38.onclick = function(){suche("http://www.multitran.ru/c/m.exe?HL=2&l1=1&l2=2&s=");return false;};
 input38.value = "Multitran RU ⇔ EN";
 input38.title = "";
 input38.type = "button";
 input38.id = "inputordbog";
-
-var input39 = document.createElement("input");
-input39.onclick = function(){suche("http://www.lingvo-online.ru/en/Translate/en-ru/");return false;};
-input39.value = "Lingvo RU ⇔ EN";
-input39.title = "";
-input39.type = "button";
-input39.id = "inputordbog";
-
-var input40 = document.createElement("input");
-input40.onclick = function(){suche("http://lingvo.mail.ru/?lang_id=1033&translate=Найти&st=search&text=");return false;};
-input40.value = "Multilex RU ⇔ EN";
-input40.title = "";
-input40.type = "button";
-input40.id = "inputordbog";
 
 var input41 = document.createElement("input");
 input41.onclick = function(){suche("http://en.bab.la/dictionary/russian-english/");return false;};
@@ -398,22 +351,15 @@ input41.title = "";
 input41.type = "button";
 input41.id = "inputordbog";
 
-var input42 = document.createElement("input");
-input42.onclick = function(){suche("http://ru.podge.de/trans.php?p=ru|en&q=");return false;};
-input42.value = "Podge RU ⇔ EN";
-input42.title = "Терминология / Terminology";
-input42.type = "button";
-input42.id = "inputordbog";
-
 var input43 = document.createElement("input");
-input43.onclick = function(){suche("http://www.ver-dict.ru/online/?base=0&dictionary=re&word=");return false;};
+input43.onclick = function(){suche("https://www.translate.ru/dictionary/ru-en/");return false;};
 input43.value = "Promt RU ⇒ EN";
 input43.title = "";
 input43.type = "button";
 input43.id = "inputordbog";
 
 var input44 = document.createElement("input");
-input44.onclick = function(){suche("http://www.ver-dict.ru/online/?base=0&dictionary=er&word=");return false;};
+input44.onclick = function(){suche("https://www.translate.ru/dictionary/en-ru/");return false;};
 input44.value = "Promt EN ⇒ RU";
 input44.title = "";
 input44.type = "button";
@@ -440,14 +386,6 @@ input47.title = "";
 input47.type = "button";
 input47.id = "inputordbog";
 
-var input57 = document.createElement("input");
-input57.onclick = function(){suche("http://lingvolive.ru/translate/da-ru/");return false;};
-input57.value = "Lingvo RU ⇔ DA";
-input57.title = "Abbyy Lingvo Live";
-input57.type = "button";
-input57.id = "inputordbog";
-
-
 var input48 = document.createElement("input");
 input48.onclick = function(){suche("http://search2.ruscorpora.ru/search.xml?env=alpha&mycorp=&mysent=&mysize=&mysentsize=&mydocsize=&dpp=&spp=&spd=&text=lexform&mode=main&sort=gr_tagging&lang=ru&nodia=1&req=");return false;};
 input48.value = "RNC / НКР";
@@ -456,60 +394,25 @@ input48.type = "button";
 input48.id = "inputordbog";
 
 var input49 = document.createElement("input");
-input49.onclick = function(){suche("http://corpora.informatik.uni-leipzig.de/res.php?corpusId=rus_mixed_2013&word=");return false;};
+input49.onclick = function(){suche("http://corpora.uni-leipzig.de/en/res?corpusId=rus_mixed_2013&word=");return false;};
 input49.value = "Leipzig Сorpus";
 input49.title = "";
 input49.type = "button";
 input49.id = "inputordbog";
 
 var input50 = document.createElement("input");
-input50.onclick = function(){suche("http://corpus.leeds.ac.uk/cgi-bin/cqp.pl?c=NEWS-RU&searchtype=conc&contextsize=60c&sort1=word&sort2=right&terminate=100&llstat=on&cleft=0&cright=1&cfilter=&da=word&q=");return false;};
-input50.value = "BOKR News";
+input50.onclick = function(){suche("http://corpus.leeds.ac.uk/cgi-bin/cqp.pl?c=I-RU&searchtype=conc&contextsize=60c&sort1=word&sort2=right&terminate=100&llstat=on&cleft=0&cright=1&cfilter=&q=");return false;};
+input50.value = "Leeds Corpus";
 input50.title = "Leeds Corpus";
 input50.type = "button";
 input50.id = "inputordbog";
 
-var input51 = document.createElement("input");
-input51.onclick = function(){suche("http://corpus.leeds.ac.uk/cgi-bin/cqp.pl?c=INTERNET-RU&searchtype=conc&contextsize=60c&sort1=word&sort2=right&terminate=100&llstat=on&cleft=0&cright=1&cfilter=&da=word&q=");return false;};
-input51.value = "BOKR Internet";
-input51.title = "Leeds Corpus";
-input51.type = "button";
-input51.id = "inputordbog";
-
-var input52 = document.createElement("input");
-input52.onclick = function(){suche("http://corpus.leeds.ac.uk/cgi-bin/cqp.pl?c=BIZ-RU&searchtype=conc&contextsize=60c&sort1=word&sort2=right&terminate=100&llstat=on&cleft=0&cright=1&cfilter=&da=word&q=");return false;};
-input52.value = "BOKR Business";
-input52.title = "Leeds Corpus";
-input52.type = "button";
-input52.id = "inputordbog";
-
 var input53 = document.createElement("input");
-input53.onclick = function(){suche3("http://www.narusco.ru/search/ac1.php?yo=on&compounds=on&wf=");return false;};
+input53.onclick = function(){suche3("http://narusco.ru/search/ac1.php?yo=on&compounds=on&wf=");return false;};
 input53.value = "Accentuation / Акцентированный корпус";
 input53.title = "";
 input53.type = "button";
 input53.id = "inputordbog";
-
-var input54 = document.createElement("input");
-input54.onclick = function(){suche("http://corpus.leeds.ac.uk/cgi-bin/cqp.pl?c=NEWS-RU&searchtype=colloc&contextsize=60c&sort1=word&sort2=right&terminate=100&llstat=on&cleft=0&cright=1&cfilter=&da=word&q=");return false;};
-input54.value = "BOKR News";
-input54.title = "Leeds Corpus";
-input54.type = "button";
-input54.id = "inputordbog";
-
-var input55 = document.createElement("input");
-input55.onclick = function(){suche("http://corpus.leeds.ac.uk/cgi-bin/cqp.pl?c=INTERNET-RU&searchtype=colloc&contextsize=60c&sort1=word&sort2=right&terminate=100&llstat=on&cleft=0&cright=1&cfilter=&da=word&q=");return false;};
-input55.value = "BOKR Internet";
-input55.title = "Leeds Corpus";
-input55.type = "button";
-input55.id = "inputordbog";
-
-var input56 = document.createElement("input");
-input56.onclick = function(){suche("http://corpus.leeds.ac.uk/cgi-bin/cqp.pl?c=BIZ-RU&searchtype=colloc&contextsize=60c&sort1=word&sort2=right&terminate=100&llstat=on&cleft=0&cright=1&cfilter=&da=word&q=");return false;};
-input56.value = "BOKR Business";
-input56.title = "Leeds Corpus";
-input56.type = "button";
-input56.id = "inputordbog";
 
 var input58 = document.createElement("input");
 input58.onclick = function(){suche("http://www.dict.com/Russisk-dansk/");return false;};
@@ -856,11 +759,10 @@ ordbogform.appendChild(input4);
 ordbogform.appendChild(input5);
 ordbogform.appendChild(input6);
 ordbogform.appendChild(input7);
-ordbogform.appendChild(input8);
+//ordbogform.appendChild(input8);
 ordbogform.appendChild(input9);
 ordbogform.appendChild(input59);
 ordbogform.appendChild(input10);
-ordbogform.appendChild(input11);
 ordbogform.appendChild(input12);
 ordbogform.appendChild(input13);
 ordbogform.appendChild(input15);
@@ -875,28 +777,21 @@ ordbogform.appendChild(input21);
 ordbogform.appendChild(input22);
 ordbogform.appendChild(input23);
 ordbogform.appendChild(input24);
-ordbogform.appendChild(input60);
-ordbogform.appendChild(input61);
+//ordbogform.appendChild(input60);
+//ordbogform.appendChild(input61);
 ordbogform.appendChild(deutsch_title);
 ordbogform.appendChild(input25);
-ordbogform.appendChild(input26);
-ordbogform.appendChild(input27);
 ordbogform.appendChild(input28);
 ordbogform.appendChild(input29);
 ordbogform.appendChild(input30);
 ordbogform.appendChild(input31);
 ordbogform.appendChild(input32);
-ordbogform.appendChild(input33);
 ordbogform.appendChild(input34);
 ordbogform.appendChild(input35);
 ordbogform.appendChild(input36);
-ordbogform.appendChild(input37);
 ordbogform.appendChild(english_title);
 ordbogform.appendChild(input38);
-ordbogform.appendChild(input39);
-ordbogform.appendChild(input40);
 ordbogform.appendChild(input41);
-ordbogform.appendChild(input42);
 ordbogform.appendChild(input43);
 ordbogform.appendChild(input44);
 ordbogform.appendChild(input45);
@@ -904,7 +799,6 @@ ordbogform.appendChild(dansk_title);
 ordbogform.appendChild(input46);
 ordbogform.appendChild(input47);
 ordbogform.appendChild(input58);
-ordbogform.appendChild(input57);
 ordbogform.appendChild(transl_title);
 ordbogform.appendChild(input_transl1);
 ordbogform.appendChild(input_transl2);
@@ -914,13 +808,8 @@ ordbogform.appendChild(concordance_title);
 ordbogform.appendChild(input48);
 ordbogform.appendChild(input49);
 ordbogform.appendChild(input50);
-ordbogform.appendChild(input51);
-ordbogform.appendChild(input52);
 ordbogform.appendChild(input53);
-ordbogform.appendChild(collocation_title);
-ordbogform.appendChild(input54);
-ordbogform.appendChild(input55);
-ordbogform.appendChild(input56);
+//ordbogform.appendChild(collocation_title);
 //	#2 END	///////////////////
 
 var linktitle = document.createElement('a');
