@@ -2,6 +2,7 @@
 // V 1.0 - 2016-08-04
 // V 1.1 - 2016-01-09: new minimize function, enlarge input field option
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
+// V 1.3 - 2019-10-10: About 10 new dictionaries, address updates, bugfixes
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
@@ -139,14 +140,14 @@ input8.type = "button";
 input8.value = "STO ordsøgning";
 input8.id = "inputordbog";
 input8.title = "Sprogteknologisk orddatabase over det danske sprog";
-input8.onclick = function(){suche4('http://ida.hum.ku.dk/cgi-bin/defisto/defisto?q=');return false;};
+input8.onclick = function(){suche4('http://sto.cst.sc.ku.dk/defisto/defisto?q=');return false;};
 
 var input9 = document.createElement("input");
 input9.type = "button";
 input9.value = "STO sammensætning";
 input9.id = "inputordbog";
 input9.title = "Sprogteknologisk orddatabase over det danske sprog";
-input9.onclick = function(){suche4('http://ida.hum.ku.dk/cgi-bin/defisto/komposition?q=');return false;};
+input9.onclick = function(){suche4('http://sto.cst.sc.ku.dk/defisto/komposition?word1=');return false;};
 
 var input10 = document.createElement("input");
 input10.type = "button";
@@ -174,7 +175,7 @@ input13.type = "button";
 input13.value = "Canoo (DE)";
 input13.id = "inputordbog";
 input13.title = "Deutsche Wörterbücher und Grammatik";
-input13.onclick = function(){suche4('http://www.canoo.net/services/Controller?input=');return false;};
+input13.onclick = function(){suche4('http://www.canoonet.eu/services/Controller?input=');return false;};
 
 var input14 = document.createElement("input");
 input14.type = "button";
@@ -221,8 +222,86 @@ input19.onclick = function(){suche4('http://www.ddoo.dk/orcapia.cms?aid=109&mode
 var input20 = document.createElement("input");
 input20.onclick = function(){suche("http://www.dict.com/Russisk-dansk/");return false;};
 input20.value = "Lingea RU ⇔ DA";
+input20.title = "Russisk-dansk ordbog,  Русско-датский словарь";
 input20.type = "button";
 input20.id = "inputordbog";
+
+var input21 = document.createElement("input");
+input21.onclick = function(){suche("https://mothsordbog.dk/ordbog?query=");return false;};
+input21.value = "Moths Ordbog";
+input21.title = "En ordbog fra omkring år 1700";
+input21.type = "button";
+input21.id = "inputordbog";
+
+var input22 = document.createElement("input");
+input22.onclick = function(){suche("https://holbergordbog.dk/ordbog?query=");return false;};
+input22.value = "Holbergordbogen";
+input22.title = "Hele Holbergs danske ordforråd";
+input22.type = "button";
+input22.id = "inputordbog";
+
+var input23 = document.createElement("input");
+input23.onclick = function(){suche("https://gammeldanskordbog.dk/ordbog?query=");return false;};
+input23.value = "Gammeldansk Ordbog";
+input23.title = "Det Danske Sprog- og Litteraturselskab";
+input23.type = "button";
+input23.id = "inputordbog";
+
+var input24 = document.createElement("input");
+input24.onclick = function(){suche("https://kalkarsordbog.dk/ordbog?query=");return false;};
+input24.value = "Kalkars Ordbog";
+input24.title = "Ordbog til det ældre danske Sprog (1300-1700)";
+input24.type = "button";
+input24.id = "inputordbog";
+
+var input25 = document.createElement("input");
+input25.onclick = function(){suche("https://latinskordbog.dk/ordbog?query=");return false;};
+input25.value = "Latinsk-dansk Ordbog";
+input25.title = "Jens Theodor Jensen og Martin Julius Goldschmidt, 1886";
+input25.type = "button";
+input25.id = "inputordbog";
+
+var input26 = document.createElement("input");
+input26.onclick = function(){suche("https://meyersfremmedordbog.dk/ordbog?query=");return false;};
+input26.value = "Meyers Fremmedordbog";
+input26.title = "Det Danske Sprog- og Litteraturselskab";
+input26.type = "button";
+input26.id = "inputordbog";
+
+var input28 = document.createElement("input");
+input28.onclick = function(){suche("https://sdo.dsl.dk/ordbog?query=");return false;};
+input28.value = "Svensk-Dansk Ordbog";
+input28.title = "Det Danske Sprog- og Litteraturselskab";
+input28.type = "button";
+input28.id = "inputordbog";
+
+var input29 = document.createElement("input");
+input29.onclick = function(){suche("https://www.dict.com/tysk-dansk/");return false;};
+input29.value = "Lingea DE ⇔ DA";
+input29.title = "Deutsch/Dänisch, Tysk/Dansk";
+input29.type = "button";
+input29.id = "inputordbog";
+
+var input30 = document.createElement("input");
+input30.onclick = function(){suche("https://www.dict.com/norsk-dansk/");return false;};
+input30.value = "Lingea NO ⇔ DA";
+input30.title = "Norsk/Dansk";
+input30.type = "button";
+input30.id = "inputordbog";
+
+var input31 = document.createElement("input");
+input31.onclick = function(){suche("https://www.dict.com/svensk-dansk/");return false;};
+input31.value = "Lingea SV ⇔ DA";
+input31.title = "Svensk/Dansk";
+input31.type = "button";
+input31.id = "inputordbog";
+
+var input32 = document.createElement("input");
+input32.onclick = function(){suche("https://www.dict.com/engelsk-dansk/");return false;};
+input32.value = "Lingea EN ⇔ DA";
+input32.title = "English/Danish, Engelsk/Dansk";
+input32.type = "button";
+input32.id = "inputordbog";
 
 var input_transl1 = document.createElement("input");
 input_transl1.type = "button";
@@ -262,6 +341,11 @@ var ensprog_title = document.createElement('div');
 var ensprog_title_inhalt = document.createTextNode('Ensproglige ordbøger');
 ensprog_title.setAttribute("class", "dictsubtitle");
 ensprog_title.appendChild(ensprog_title_inhalt);
+
+var historisk_title = document.createElement('div');
+var historisk_title_inhalt = document.createTextNode('(Sprog-)historiske ordbøger');
+historisk_title.setAttribute("class", "dictsubtitle");
+historisk_title.appendChild(historisk_title_inhalt);
 
 var tosprog_title = document.createElement('div');
 var tosprog_title_inhalt = document.createTextNode('Tosproglige ordbøger');
@@ -335,22 +419,34 @@ ordbogform.appendChild(ensprog_title);
 ordbogform.appendChild(input2);
 ordbogform.appendChild(input19);
 ordbogform.appendChild(input1);
-ordbogform.appendChild(input3);
 ordbogform.appendChild(input17);
 ordbogform.appendChild(input4);
 ordbogform.appendChild(input5);
-ordbogform.appendChild(input6);
-ordbogform.appendChild(input7);
 ordbogform.appendChild(input8);
 ordbogform.appendChild(input9);
 ordbogform.appendChild(input18);
+ordbogform.appendChild(historisk_title);
+ordbogform.appendChild(input3);
+ordbogform.appendChild(input6);
+ordbogform.appendChild(input7);
+ordbogform.appendChild(input21);
+ordbogform.appendChild(input22);
+ordbogform.appendChild(input23);
+ordbogform.appendChild(input24);
+ordbogform.appendChild(input25);
+ordbogform.appendChild(input26);
 ordbogform.appendChild(tosprog_title);
 ordbogform.appendChild(input10);
+ordbogform.appendChild(input29);
 ordbogform.appendChild(input15);
 ordbogform.appendChild(input20);
 ordbogform.appendChild(input11);
 ordbogform.appendChild(input12);
 ordbogform.appendChild(input16);
+ordbogform.appendChild(input32);
+ordbogform.appendChild(input31);
+ordbogform.appendChild(input28);
+ordbogform.appendChild(input30);
 ordbogform.appendChild(andresprog_title);
 ordbogform.appendChild(input14);
 ordbogform.appendChild(input13);
