@@ -3,6 +3,7 @@
 // V 1.1 - 2017-01-09: new minimize function, enlarge input field option
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
 // V 1.3 - 2017-11-10: new Wörterbuchnetz & Wörterbuch-Portal
+// V 1.4 - 2019-10-10: Dictionary address updates
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
@@ -120,14 +121,14 @@ input_de0.type = "button";
 input_de0.value = "DWDS";
 input_de0.id = "inputordbog";
 input_de0.title = "Digitale Wörterbuch der deutschen Sprache";
-input_de0.onclick = function(){suche4('http://www.dwds.de/?qu=');return false;};
+input_de0.onclick = function(){suche('https://www.dwds.de/wb/');return false;};
 
 var input_de1 = document.createElement("input");
 input_de1.type = "button";
 input_de1.value = "Canoo";
 input_de1.id = "inputordbog";
 input_de1.title = "Deutsche Wörterbücher und Grammatik";
-input_de1.onclick = function(){suche4('http://www.canoo.net/services/Controller?input=');return false;};
+input_de1.onclick = function(){suche4('http://www.canoonet.eu/services/Controller?input=');return false;};
 
 var input_de2 = document.createElement("input");
 input_de2.type = "button";
@@ -147,7 +148,7 @@ input_de4.type = "button";
 input_de4.value = "Pons DaF";
 input_de4.id = "inputordbog";
 input_de4.title = "Deutsch als Fremdsprache";
-input_de4.onclick = function(){suche('http://de.pons.com/übersetzung?l=dedx&in=&lf=&q=');return false;};
+input_de4.onclick = function(){suche('https://de.pons.com/übersetzung?l=dedx&in=&lf=&q=');return false;};
 
 var input_de5 = document.createElement("input");
 input_de5.type = "button";
@@ -180,7 +181,7 @@ input_de9.type = "button";
 input_de9.value = "Wörterbuchnetz";
 input_de9.id = "inputordbog";
 input_de9.title = "Universität Trier";
-input_de9.onclick = function(){suche('http://www.woerterbuchnetz.de/cgi-bin/WBNetz/startGlobalSearch.tcl?stichwort=');return false;};
+input_de9.onclick = function(){suche4('http://www.woerterbuchnetz.de/cgi-bin/WBNetz/startGlobalSearch.tcl?stichwort=');return false;};
 
 
 var input_korpus1 = document.createElement("input");
@@ -188,7 +189,7 @@ input_korpus1.type = "button";
 input_korpus1.value = "LIMAS";
 input_korpus1.id = "inputordbog";
 input_korpus1.title = "Online-Wortschatz-Informationssystem Deutsch des Instituts für Deutsche Sprache (IDS)";
-input_korpus1.onclick = function(){suche('https://korpora.zim.uni-duisburg-essen.de/cgi-bin/Limas/chkinput.pl?startpos=1&seite=einfach.htm&menge=20&kontextbreite=1&suchtext=');return false;};
+input_korpus1.onclick = function(){suche4('https://korpora.zim.uni-duisburg-essen.de/cgi-bin/Limas/chkinput.pl?startpos=1&seite=einfach.htm&menge=20&kontextbreite=1&suchtext=');return false;};
 
 var input_korpus2 = document.createElement("input");
 input_korpus2.type = "button";
@@ -202,14 +203,14 @@ input_korpus3.type = "button";
 input_korpus3.value = "Zeitungskorpus 2011";
 input_korpus3.id = "inputordbog";
 input_korpus3.title = "Wortschatzportal (Korpus) Uni Leipzig";
-input_korpus3.onclick = function(){suche('http://corpora.informatik.uni-leipzig.de/de/res?corpusId=deu_newscrawl_2011&word=');return false;};
+input_korpus3.onclick = function(){suche('http://corpora.uni-leipzig.de/de/res?corpusId=deu_newscrawl_2011&word=');return false;};
 
 var input_korpus4 = document.createElement("input");
 input_korpus4.type = "button";
 input_korpus4.value = "Zeitungskorpus 2012";
 input_korpus4.id = "inputordbog";
 input_korpus4.title = "Wortschatzportal (Korpus) Uni Leipzig";
-input_korpus4.onclick = function(){suche('http://corpora.informatik.uni-leipzig.de/de/res?corpusId=deu-na_newscrawl_2012&word=');return false;};
+input_korpus4.onclick = function(){suche('http://corpora.uni-leipzig.de/de/res?corpusId=deu-na_newscrawl_2012&word=');return false;};
 
 var input_en1 = document.createElement("input");
 input_en1.type = "button";
@@ -221,13 +222,13 @@ var input_en2 = document.createElement("input");
 input_en2.type = "button";
 input_en2.value = "Leo EN ⇔ DE";
 input_en2.id = "inputordbog";
-input_en2.onclick = function(){suche('http://dict.leo.org/ende/index_de.html#/search=');return false;};
+input_en2.onclick = function(){suche('https://dict.leo.org/englisch-deutsch/');return false;};
 
 var input_en3 = document.createElement("input");
 input_en3.type = "button";
 input_en3.value = "Pons EN ⇔ DE";
 input_en3.id = "inputordbog";
-input_en3.onclick = function(){suche('en.pons.com/translate?l=deen&q=');return false;};
+input_en3.onclick = function(){suche('https://en.pons.com/translate?l=deen&q=');return false;};
 
 var input_en4 = document.createElement("input");
 input_en4.type = "button";
@@ -241,30 +242,17 @@ input_en5.value = "bab.la EN ⇔ DE";
 input_en5.id = "inputordbog";
 input_en5.onclick = function(){suche('http://de.bab.la/woerterbuch/deutsch-englisch/');return false;};
 
-var input_en6 = document.createElement("input");
-input_en6.type = "button";
-input_en6.value = "Podge EN ⇔ DE";
-input_en6.id = "inputordbog";
-input_en6.title = "Terminologie / Terminology";
-input_en6.onclick = function(){suche('http://www.en.podge.de/trans.php?p=en|de&q=');return false;};
-
 var input_en7 = document.createElement("input");
 input_en7.type = "button";
 input_en7.value = "Phrases / Redewendungen EN ⇔ DE";
 input_en7.id = "inputordbog";
-input_en7.onclick = function(){suche4('http://www.phrasen.com/index.php?do=suche&q=');return false;};
+input_en7.onclick = function(){suche('https://www.phrasen.com/index.php/suche/');return false;};
 
 var input_bg1 = document.createElement("input");
 input_bg1.type = "button";
 input_bg1.value = "dict.cc BG ⇔ DE";
 input_bg1.id = "inputordbog";
 input_bg1.onclick = function(){suche('http://bgde.dict.cc/?s=');return false;};
-
-var input_bg2 = document.createElement("input");
-input_bg2.type = "button";
-input_bg2.value = "EuroDict BG ⇔ DE";
-input_bg2.id = "inputordbog";
-input_bg2.onclick = function(){suche('http://www.bulgariandictionary.com/search.php?go=Превод&ok=1&diction=ed_bg_de&lang=BG&word=');return false;};
 
 var input_mk1 = document.createElement("input");
 input_mk1.type = "button";
@@ -291,29 +279,15 @@ input_ru1.title = "";
 input_ru1.type = "button";
 input_ru1.id = "inputordbog";
 
-var input_ru2 = document.createElement("input");
-input_ru2.onclick = function(){suche("http://www.lingvo-online.ru/en/Translate/de-ru/");return false;};
-input_ru2.value = "Lingvo RU ⇔ DE";
-input_ru2.title = "";
-input_ru2.type = "button";
-input_ru2.id = "inputordbog";
-
-var input_ru3 = document.createElement("input");
-input_ru3.onclick = function(){suche("http://lingvo.mail.ru/?lang_id=32775&translate=Найти&st=search&text=");return false;};
-input_ru3.value = "Multilex RU ⇔ DE";
-input_ru3.title = "";
-input_ru3.type = "button";
-input_ru3.id = "inputordbog";
-
 var input_ru4 = document.createElement("input");
-input_ru4.onclick = function(){suche("http://en.pons.eu/dict/search/results/?in=&l=deru&q=");return false;};
+input_ru4.onclick = function(){suche("https://en.pons.eu/dict/search/results/?in=&l=deru&q=");return false;};
 input_ru4.value = "Pons RU ⇔ DE";
 input_ru4.title = "";
 input_ru4.type = "button";
 input_ru4.id = "inputordbog";
 
 var input_ru5 = document.createElement("input");
-input_ru5.onclick = function(){suche("http://dict.leo.org/rude?lp=rude&search=");return false;};
+input_ru5.onclick = function(){suche("https://dict.leo.org/russisch-deutsch/");return false;};
 input_ru5.value = "LEO RU ⇔ DE";
 input_ru5.title = "";
 input_ru5.type = "button";
@@ -340,22 +314,15 @@ input_ru8.title = "";
 input_ru8.type = "button";
 input_ru8.id = "inputordbog";
 
-var input_ru9 = document.createElement("input");
-input_ru9.onclick = function(){suche("http://ru.podge.de/trans.php?p=ru|de&q=");return false;};
-input_ru9.value = "Podge RU ⇔ DE";
-input_ru9.title = "Terminologie / Терминология";
-input_ru9.type = "button";
-input_ru9.id = "inputordbog";
-
 var input_ru10 = document.createElement("input");
-input_ru10.onclick = function(){suche("http://www.ver-dict.ru/online/?base=0&dictionary=rg&word=");return false;};
+input_ru10.onclick = function(){suche("https://www.translate.ru/dictionary/ru-de/");return false;};
 input_ru10.value = "Promt RU ⇒ DE";
 input_ru10.title = "";
 input_ru10.type = "button";
 input_ru10.id = "inputordbog";
 
 var input_ru11 = document.createElement("input");
-input_ru11.onclick = function(){suche("http://www.ver-dict.ru/online/?base=0&dictionary=gr&word=");return false;};
+input_ru11.onclick = function(){suche("https://www.translate.ru/dictionary/de-ru/");return false;};
 input_ru11.value = "Promt DE ⇒ RU";
 input_ru11.title = "";
 input_ru11.type = "button";
@@ -367,13 +334,6 @@ input_ru12.value = "Крылов / Krylov DE ⇒ RU";
 input_ru12.title = "Справочник по метаязыку русских грамматистов первой половины XX века / Linguistische Terminologie";
 input_ru12.type = "button";
 input_ru12.id = "inputordbog";
-
-var input_ru13 = document.createElement("input");
-input_ru13.onclick = function(){suche("http://simpledict.com/en/");return false;};
-input_ru13.value = "Simple Dictionary EN ⇔ RU ⇔ DE";
-input_ru13.title = "";
-input_ru13.type = "button";
-input_ru13.id = "inputordbog";
 
 var input_da1 = document.createElement("input");
 input_da1.type = "button";
@@ -542,23 +502,18 @@ ordbogform.appendChild(input_en2);
 ordbogform.appendChild(input_en3);
 ordbogform.appendChild(input_en4);
 ordbogform.appendChild(input_en5);
-ordbogform.appendChild(input_en6);
 ordbogform.appendChild(input_en7);
 ordbogform.appendChild(umbruch);
 ordbogform.appendChild(de_ru);
 ordbogform.appendChild(input_ru1);
-ordbogform.appendChild(input_ru2);
-ordbogform.appendChild(input_ru3);
 ordbogform.appendChild(input_ru4);
 ordbogform.appendChild(input_ru5);
 ordbogform.appendChild(input_ru6);
 ordbogform.appendChild(input_ru7);
 ordbogform.appendChild(input_ru8);
-ordbogform.appendChild(input_ru9);
 ordbogform.appendChild(input_ru10);
 ordbogform.appendChild(input_ru11);
 ordbogform.appendChild(input_ru12);
-ordbogform.appendChild(input_ru13);
 ordbogform.appendChild(umbruch2);
 ordbogform.appendChild(de_da);
 ordbogform.appendChild(input_da1);
@@ -566,7 +521,6 @@ ordbogform.appendChild(input_da2);
 ordbogform.appendChild(umbruch3);
 ordbogform.appendChild(de_bg);
 ordbogform.appendChild(input_bg1);
-ordbogform.appendChild(input_bg2);
 ordbogform.appendChild(umbruch4);
 ordbogform.appendChild(de_mk);
 ordbogform.appendChild(input_mk1);
