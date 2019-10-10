@@ -26,12 +26,11 @@ var VKI_attach, VKI_close;
  
   var param=(params[1]+",,,").split(",",3);
 
-  param[0] = (param[0]=='') ? "\u0420\u0443\u0441\u0441\u043a\u0438\u0439" : unescape(param[0]);
+  param[0] = (param[0]=='') ? "English (UK)" : unescape(param[0]);
   param[1] = (param[1]=='' || param[1]=='true') ? true : false;
   param[2] = (param[2]=='' || param[2]=='true') ? true : false;
 
 //  var CssURI=params[0]+".css";
-//  var CssURI="https://podolak.net/doc/keyboard/keyboard2.js.css";
   var CssURI="https://languagebookmarklet.de/keyboard/keyboard.css";
   var self = this;
   this.VKI_version = "1.44";

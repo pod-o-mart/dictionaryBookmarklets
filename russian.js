@@ -110,7 +110,7 @@ var f = t.toString();
 	}
 
 inddata.id="texto";
-s=document.createElement('script');s.id='r6109_vkbsgp';s.type='text/javascript';s.src=ordbogurl+'keyboard.js?,true,false';document.body.appendChild(s);void(null);
+s=document.createElement('script');s.id='r6109_vkbsgp';s.type='text/javascript';s.src=ordbogurl+'keyboard-ocs.js?,true,false';document.body.appendChild(s);void(null);
 inddata.setAttribute("class", "keyboardInput");
 inddata.value =t;
 inddata.id="texto";

@@ -2,7 +2,7 @@
 // V 1.0 - 2016-08-04
 // V 1.1 - 2017-01-09: new minimize function, enlarge input field option
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
-// V 1.3 - 2019-10-10: Dictionary address updates and bugfix
+// V 1.3 - 2019-10-10: Dictionary address updates
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
@@ -107,7 +107,7 @@ var f = t.toString();
 	}
 
 inddata.id="texto";
-s=document.createElement('script');s.id='r6109_vkbsgp';s.type='text/javascript';s.src=ordbogurl+'keyboard.js?,true,false';document.body.appendChild(s);void(null);
+s=document.createElement('script');s.id='r6109_vkbsgp';s.type='text/javascript';s.src=ordbogurl+'keyboard-ocs.js?,true,false';document.body.appendChild(s);void(null);
 inddata.setAttribute("class", "keyboardInput");
 inddata.value =t;
 inddata.id="texto";
