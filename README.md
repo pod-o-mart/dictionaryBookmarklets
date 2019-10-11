@@ -3,9 +3,7 @@
 - Transliteration functions for [Old Church Slavonic](https://podolak.net/en/bookmarklets/old-church-slavonic), Russian and [Yiddish](https://podolak.net/en/bookmarklets/yiddish)
 - Virtual keyboard for Cyrillic / Hebrew script
 
-[DEMO](https://podolak.net/en/dictionaries/bookmarklets)
-
-
+[DEMO](javascript:var%20t=window.getSelection?window.getSelection():document.getSelection?document.getSelection():(document.selection&&document.selection.createRange)?document.selection.createRange().text:'';if(t!='');(function(d){var%20s=d.createElement('script');s.type='text/javascript';s.charset='utf-8';s.async=true;s.src='https://languagebookmarklet.de/dictionary/russian.js';d.body.appendChild(s);}(document));)
 
 In order to use the dictionary (and transliteration) bookmarklets on your own server, website or computer, you need to
 
