@@ -3,11 +3,13 @@
 // V 1.1 - 2016-01-09: new minimize function, enlarge input field option
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
 // V 1.3 - 2019-10-10: About 10 new dictionaries, address updates, bugfixes
+// V 1.4 - 2019-10-11: Virtual keyboard automatically turned to OCS
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
 // This work is licensed under the GNU General Public License v3.0
 
+var kblang = { lang : "Dansk" };
 if(!document.getElementById("ordbogform"))
 {
 

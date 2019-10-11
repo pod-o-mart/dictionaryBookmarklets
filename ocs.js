@@ -3,11 +3,13 @@
 // V 1.0 - 2018-05-20: With transliteration function
 // V 1.1 - 2018-06-08: New dictionaries: academic.ru, Словарь древнерусского языка (XI—XIV вв.); numerals converter. Minor bugfixes
 // V 1.2 - 2019-10-10: New keyboard codepage, dictionary address updates, minor bugfixes
+// V 1.3 - 2019-10-11: Virtual keyboard automatically turned to OCS
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
 // This work is licensed under the GNU General Public License v3.0
 
+var kblang = { lang : "\u{421}\u{43B}\u{43E}\u{432}\u{463}\u{43D}\u{44C}\u{441}\u{43A}\u{44A}" };
 if(!document.getElementById("ordbogform"))
 {
 
@@ -106,7 +108,7 @@ var f = t.toString();
 	}
 
 inddata.id="texto";
-s=document.createElement('script');s.id='r6109_vkbsgp';s.type='text/javascript';s.src=ordbogurl+'keyboard-ocs.js?,true,false';document.body.appendChild(s);void(null);
+s=document.createElement('script');s.id='r6109_vkbsgp';s.type='text/javascript';s.src=ordbogurl+'keyboard-slav.js?,true,false';document.body.appendChild(s);void(null);
 inddata.setAttribute("class", "keyboardInput");
 inddata.value =t;
 inddata.id="texto";

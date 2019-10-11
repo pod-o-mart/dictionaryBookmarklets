@@ -4,11 +4,13 @@
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
 // V 1.3 - 2017-11-10: new Wörterbuchnetz & Wörterbuch-Portal
 // V 1.4 - 2019-10-10: Dictionary address updates
+// V 1.5 - 2019-10-11: New corpora and dictionaries, virtual keyboard automatically turned to German
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
 // This work is licensed under the GNU General Public License v3.0
 
+var kblang = { lang : "Deutsch" };
 if(!document.getElementById("ordbogform"))
 {
 
@@ -183,6 +185,17 @@ input_de9.id = "inputordbog";
 input_de9.title = "Universität Trier";
 input_de9.onclick = function(){suche4('http://www.woerterbuchnetz.de/cgi-bin/WBNetz/startGlobalSearch.tcl?stichwort=');return false;};
 
+var input_de10 = document.createElement("input");
+input_de10.type = "button";
+input_de10.value = "GernWeb";
+input_de10.id = "inputordbog";
+input_de10.onclick = function(){suche('https://weblicht.sfs.uni-tuebingen.de/germanet/#/?lemma=');return false;};
+
+var input_de11 = document.createElement("input");
+input_de11.type = "button";
+input_de11.value = "FreeDictionary";
+input_de11.id = "inputordbog";
+input_de11.onclick = function(){suche('https://de.thefreedictionary.com/');return false;};
 
 var input_korpus1 = document.createElement("input");
 input_korpus1.type = "button";
@@ -211,6 +224,19 @@ input_korpus4.value = "Zeitungskorpus 2012";
 input_korpus4.id = "inputordbog";
 input_korpus4.title = "Wortschatzportal (Korpus) Uni Leipzig";
 input_korpus4.onclick = function(){suche('http://corpora.uni-leipzig.de/de/res?corpusId=deu-na_newscrawl_2012&word=');return false;};
+
+var input_korpus5 = document.createElement("input");
+input_korpus5.type = "button";
+input_korpus5.value = "DWDS-Kernkorpus";
+input_korpus5.id = "inputordbog";
+input_korpus5.onclick = function(){suche('https://www.dwds.de/r?corpus=kern&date-start=1900&date-end=1999&genre=Belletristik&genre=Wissenschaft&genre=Gebrauchsliteratur&genre=Zeitung&format=full&sort=date_asc&limit=10&q=');return false;};
+
+var input_korpus6 = document.createElement("input");
+input_korpus6.type = "button";
+input_korpus6.value = "Deutsches Textarchiv";
+input_korpus6.id = "inputordbog";
+input_korpus6.title = "Deutschsprachige Texte aus dem Zeitraum von ca. 1600 bis 1900";
+input_korpus6.onclick = function(){suche('http://www.deutschestextarchiv.de/search?in=text&q=');return false;};
 
 var input_en1 = document.createElement("input");
 input_en1.type = "button";
@@ -253,6 +279,12 @@ input_bg1.type = "button";
 input_bg1.value = "dict.cc BG ⇔ DE";
 input_bg1.id = "inputordbog";
 input_bg1.onclick = function(){suche('http://bgde.dict.cc/?s=');return false;};
+
+var input_bg2 = document.createElement("input");
+input_bg2.type = "button";
+input_bg2.value = "Lingea BG ⇔ DE";
+input_bg2.id = "inputordbog";
+input_bg2.onclick = function(){suche('https://www.dict.com/немско-български/');return false;};
 
 var input_mk1 = document.createElement("input");
 input_mk1.type = "button";
@@ -310,21 +342,18 @@ input_ru7.id = "inputordbog";
 var input_ru8 = document.createElement("input");
 input_ru8.onclick = function(){suche("http://deru.dict.cc/?s=");return false;};
 input_ru8.value = "dict.cc RU ⇔ DE";
-input_ru8.title = "";
 input_ru8.type = "button";
 input_ru8.id = "inputordbog";
 
 var input_ru10 = document.createElement("input");
 input_ru10.onclick = function(){suche("https://www.translate.ru/dictionary/ru-de/");return false;};
 input_ru10.value = "Promt RU ⇒ DE";
-input_ru10.title = "";
 input_ru10.type = "button";
 input_ru10.id = "inputordbog";
 
 var input_ru11 = document.createElement("input");
 input_ru11.onclick = function(){suche("https://www.translate.ru/dictionary/de-ru/");return false;};
 input_ru11.value = "Promt DE ⇒ RU";
-input_ru11.title = "";
 input_ru11.type = "button";
 input_ru11.id = "inputordbog";
 
@@ -334,6 +363,12 @@ input_ru12.value = "Крылов / Krylov DE ⇒ RU";
 input_ru12.title = "Справочник по метаязыку русских грамматистов первой половины XX века / Linguistische Terminologie";
 input_ru12.type = "button";
 input_ru12.id = "inputordbog";
+
+var input_ru13 = document.createElement("input");
+input_ru13.onclick = function(){suche("https://de.langenscheidt.com/deutsch-russisch/");return false;};
+input_ru13.value = "Langenscheidt DE ⇒ RU";
+input_ru13.type = "button";
+input_ru13.id = "inputordbog";
 
 var input_da1 = document.createElement("input");
 input_da1.type = "button";
@@ -348,6 +383,13 @@ input_da2.value = "pauker.at DA ⇔ DE";
 input_da2.id = "inputordbog";
 input_da2.title = "Deutsch/Dänisch, Tysk/Dansk";
 input_da2.onclick = function(){suche('https://www.pauker.at/pauker/DE_DE/DA/wb/?modus=&page=1&suche=');return false;};
+
+var input_da3 = document.createElement("input");
+input_da3.type = "button";
+input_da3.value = "Lingea DA ⇔ DE";
+input_da3.id = "inputordbog";
+input_da3.title = "Deutsch/Dänisch, Tysk/Dansk";
+input_da3.onclick = function(){suche('https://www.dict.com/danisch-deutsch/');return false;};
 
 var input_transl1 = document.createElement("input");
 input_transl1.type = "button";
@@ -427,12 +469,12 @@ spanoben.appendChild(spansubtitle);
 ordbogform.appendChild(spanoben);
 
 var de_title = document.createElement('div');
-var de_title_inhalt = document.createTextNode('Deutsche einsprachige Wörterbücher');
+var de_title_inhalt = document.createTextNode('Einsprachige Wörterbücher');
 de_title.setAttribute("class", "dictsubtitle");
 de_title.appendChild(de_title_inhalt);
 
 var de_multi_title = document.createElement('div');
-var de_multi_title_inhalt = document.createTextNode('Deutsche mehrsprachige Wörterbücher / German multilingual');
+var de_multi_title_inhalt = document.createTextNode('Mehrsprachige Wörterbücher / Multilingual Dictionaries');
 de_multi_title.setAttribute("class", "dictsubtitle");
 de_multi_title.appendChild(de_multi_title_inhalt);
 
@@ -494,6 +536,8 @@ ordbogform.appendChild(input_de9);
 ordbogform.appendChild(input_de4);
 ordbogform.appendChild(input_de5);
 ordbogform.appendChild(input_de6);
+ordbogform.appendChild(input_de10);
+ordbogform.appendChild(input_de11);
 ordbogform.appendChild(input_de7);
 ordbogform.appendChild(de_multi_title);
 ordbogform.appendChild(de_en);
@@ -514,12 +558,15 @@ ordbogform.appendChild(input_ru8);
 ordbogform.appendChild(input_ru10);
 ordbogform.appendChild(input_ru11);
 ordbogform.appendChild(input_ru12);
+ordbogform.appendChild(input_ru13);
 ordbogform.appendChild(umbruch2);
 ordbogform.appendChild(de_da);
+ordbogform.appendChild(input_da3);
 ordbogform.appendChild(input_da1);
 ordbogform.appendChild(input_da2);
 ordbogform.appendChild(umbruch3);
 ordbogform.appendChild(de_bg);
+ordbogform.appendChild(input_bg2);
 ordbogform.appendChild(input_bg1);
 ordbogform.appendChild(umbruch4);
 ordbogform.appendChild(de_mk);
@@ -537,6 +584,8 @@ ordbogform.appendChild(input_korpus1);
 ordbogform.appendChild(input_korpus2);
 ordbogform.appendChild(input_korpus3);
 ordbogform.appendChild(input_korpus4);
+ordbogform.appendChild(input_korpus5);
+ordbogform.appendChild(input_korpus6);
 
 //	#2 END	///////////////////
 
