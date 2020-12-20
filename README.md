@@ -1,6 +1,6 @@
 # dictionaryBookmarklets
-- Online dictionary lookup helpers for Bulgarian, Danish, English, German, Macedonian, [Old Church Slavonic](https://podolak.net/en/bookmarklets/old-church-slavonic), Russian and [Yiddish](https://podolak.net/en/bookmarklets/yiddish)
-- Transliteration functions for [Old Church Slavonic](https://podolak.net/en/bookmarklets/old-church-slavonic), Russian and [Yiddish](https://podolak.net/en/bookmarklets/yiddish)
+- Online dictionary lookup helpers for Bulgarian, Danish, English, German, Macedonian, [Old Church Slavonic](https://podolak.net/en/bookmarklets/old-church-slavonic), Russian and [Yiddish](https://oesteuropastudier.dk/en/tools/bookmarklets/yiddish)
+- Transliteration functions for [Old Church Slavonic](https://podolak.net/en/bookmarklets/old-church-slavonic), Russian and [Yiddish](https://oesteuropastudier.dk/en/tools/bookmarklets/yiddish)
 - Virtual keyboard for Cyrillic / Hebrew script
 
 [DEMO](https://podolak.net/en/dictionaries/bookmarklets)
