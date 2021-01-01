@@ -5,6 +5,7 @@
 // V 1.3 - 2017-11-10: new Wörterbuchnetz & Wörterbuch-Portal
 // V 1.4 - 2019-10-10: Dictionary address updates
 // V 1.5 - 2019-10-11: New corpora and dictionaries, virtual keyboard automatically turned to German
+// V 1.6 - 2021-01-01: Removed canoo, GernWeb. Added grammis, ZweiDat
 // Read more: https://podolak.net/en/bookmarklets
 // Author: Martin Podolak
 // Contact: www.podolak.net
@@ -127,10 +128,10 @@ input_de0.onclick = function(){suche('https://www.dwds.de/wb/');return false;};
 
 var input_de1 = document.createElement("input");
 input_de1.type = "button";
-input_de1.value = "Canoo";
+input_de1.value = "ZweiDat";
 input_de1.id = "inputordbog";
-input_de1.title = "Deutsche Wörterbücher und Grammatik";
-input_de1.onclick = function(){suche4('http://www.canoonet.eu/services/Controller?input=');return false;};
+input_de1.title = "Datenbank sprachlicher Zweifelsfälle";
+input_de1.onclick = function(){suche4('http://kallimachos.de/zweidat/index.php?title=Spezial:Suche&search=');return false;};
 
 var input_de2 = document.createElement("input");
 input_de2.type = "button";
@@ -187,9 +188,10 @@ input_de9.onclick = function(){suche4('http://www.woerterbuchnetz.de/cgi-bin/WBN
 
 var input_de10 = document.createElement("input");
 input_de10.type = "button";
-input_de10.value = "GernWeb";
+input_de10.value = "grammis";
 input_de10.id = "inputordbog";
-input_de10.onclick = function(){suche('https://weblicht.sfs.uni-tuebingen.de/germanet/#/?lemma=');return false;};
+input_de10.title = "Wissenschaftliches Informationssystem zur deutschen Grammatik";
+input_de10.onclick = function(){suche('https://grammis.ids-mannheim.de/suche?search=');return false;};
 
 var input_de11 = document.createElement("input");
 input_de11.type = "button";
@@ -528,7 +530,6 @@ function bigger2() {
 
 ordbogform.appendChild(de_title);
 ordbogform.appendChild(input_de0);
-ordbogform.appendChild(input_de1);
 ordbogform.appendChild(input_de2);
 ordbogform.appendChild(input_de3);
 ordbogform.appendChild(input_de8);
@@ -536,9 +537,10 @@ ordbogform.appendChild(input_de9);
 ordbogform.appendChild(input_de4);
 ordbogform.appendChild(input_de5);
 ordbogform.appendChild(input_de6);
-ordbogform.appendChild(input_de10);
 ordbogform.appendChild(input_de11);
 ordbogform.appendChild(input_de7);
+ordbogform.appendChild(input_de10);
+ordbogform.appendChild(input_de1);
 ordbogform.appendChild(de_multi_title);
 ordbogform.appendChild(de_en);
 ordbogform.appendChild(input_en1);
@@ -686,4 +688,3 @@ div.style.display = 'none';
 	loadjscssfile(ordbogurl+"bigger.css", "css");
 	}
 }
-
