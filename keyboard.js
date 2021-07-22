@@ -31,7 +31,7 @@ var VKI_attach, VKI_close;
   param[2] = (param[2]=='' || param[2]=='true') ? true : false;
 
 //  var CssURI=params[0]+".css";
-  var CssURI="https://languagebookmarklet.de/dictionary/keyboard.css";
+  var CssURI="https://pod-o-mart.github.io/dictionaryBookmarklets/keyboard.css";
   var self = this;
   this.VKI_version = "1.44";
   this.VKI_showVersion = false;
