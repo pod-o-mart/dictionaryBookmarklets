@@ -1,3 +1,25 @@
+@font-face {
+    font-family: 'FiraSlav';
+    src: url('https://sci.ponomar.net/fonts/FiraSlav-Regular.eot');
+    src: url('https://sci.ponomar.net/fonts/FiraSlav-Regular.eot?#iefix') format('embedded-opentype'),
+	url('https://sci.ponomar.net/fonts/FiraSlav-Regular.woff2') format('woff2'),
+	url('https://sci.ponomar.net/fonts/FiraSlav-Regular.woff') format('woff'),
+	url('https://sci.ponomar.net/fonts/FiraSlav-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FiraSlav';
+    src: url('https://sci.ponomar.net/fonts/FiraSlav-Bold.eot');
+    src: url('https://sci.ponomar.net/fonts/FiraSlav-Bold.eot?#iefix') format('embedded-opentype'),
+	url('https://sci.ponomar.net/fonts/FiraSlav-Bold.woff2') format('woff2'),
+	url('https://sci.ponomar.net/fonts/FiraSlav-Bold.woff') format('woff'),
+	url('https://sci.ponomar.net/fonts/FiraSlav-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
 #keyboardInputMaster {
   position:absolute;
   font:normal 11px Arial,sans-serif;
@@ -41,7 +63,6 @@
   outline:0px;
   vertical-align:baseline;
   line-height:1.3em;
-  direction:ltr;
 }
 #keyboardInputMaster table {
   table-layout:auto;
@@ -191,7 +212,7 @@
   padding:0px 0.45em;
   white-space:pre;
   height:1.8em;
-  font-family:'Lucida Console','Arial Unicode MS',monospace;
+  font-family:'FiraSlav',monospace;
   border-top:1px solid #e5e5e5;
   border-right:1px solid #5d5d5d;
   border-bottom:1px solid #5d5d5d;
@@ -270,12 +291,3 @@
   vertical-align:middle;
   cursor:pointer;
 }
-
-
-#tabelletr td img.keyboardInputInitiator {
-  float:right;
-}
-
-
-
-
