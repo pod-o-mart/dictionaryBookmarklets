@@ -322,62 +322,6 @@ input33.title = "Тълковен, правописен, синонимен и �
 input33.id = "inputordbog";
 input33.onclick = function(){suche('http://www.onlinerechnik.com/duma/');return false;};
 
-var input_hist1 = document.createElement("input");
-input_hist1.onclick = function(){suche("http://oesteuropastudier.dk/ordbog/index.php?a=srch&source=opensearch&q=");return false;};
-input_hist1.value = "oesteuropastudier.dk";
-input_hist1.title = "";
-input_hist1.type = "button";
-input_hist1.id = "inputordbog";
-
-var input_hist2 = document.createElement("input");
-input_hist2.onclick = function(){suche("http://www.orthodic.org/?searchCs=&go.x=0&go.y=0&type=ru&searchRu=");return false;};
-input_hist2.value = "Orthodic RU ⇒ OCS";
-input_hist2.title = "";
-input_hist2.type = "button";
-input_hist2.id = "inputordbog";
-
-var input_hist3 = document.createElement("input");
-input_hist3.onclick = function(){suche("http://www.orthodic.org/?searchRu=&go.x=0&go.y=0&type=cs&searchCs=");return false;};
-input_hist3.value = "Orthodic OCS ⇒ RU";
-input_hist3.title = "";
-input_hist3.type = "button";
-input_hist3.id = "inputordbog";
-
-var input_hist4 = document.createElement("input");
-input_hist4.onclick = function(){suche("http://starling.rinet.ru/cgi-bin/response.cgi?root=%2Fusr%2Flocal%2Fshare%2Fstarling%2Fmorpho&morpho=1&basename=morpho\\vasmer\\vasmer&first=1&off=&method_word=beginning&ic_word=on&text_general=&method_general=substring&ic_general=on&text_origin=&method_origin=substring&ic_origin=on&text_trubachev=&method_trubachev=substring&ic_trubachev=on&text_editorial=&method_editorial=substring&ic_editorial=on&text_pages=&method_pages=substring&ic_pages=on&text_any=&method_any=substring&sort=word&ic_any=on&text_word=");return false;};
-input_hist4.value = "Vasmer / Фасмер";
-input_hist4.title = "";
-input_hist4.type = "button";
-input_hist4.id = "inputordbog";
-
-var input_hist5 = document.createElement("input");
-input_hist5.onclick = function(){suche3("http://etymolog.ruslang.ru/index.php?wildcards=checked&act=search&vasmer=checked&chernykh=checked&vinogradov=checked&wordhist=checked&novoe=checked&etymology=checked&word=");return false;};
-input_hist5.value = "Этимология.ruslang.ru";
-input_hist5.title = "";
-input_hist5.type = "button";
-input_hist5.id = "inputordbog";
-
-var input_hist6 = document.createElement("input");
-input_hist6.onclick = function(){suche("http://www.nevmenandr.net/slovo/cword.php?w=");return false;};
-input_hist6.value = "«Слово о полку Игореве» - Параллельный корпус";
-input_hist6.title = "";
-input_hist6.type = "button";
-input_hist6.id = "inputordbog";
-
-var input_hist7 = document.createElement("input");
-input_hist7.value = 'WebmorphOCS Paradigm';
-input_hist7.title = "Online Old Church Slavonic morphology - Full paradigm from infinitive verbs, nouns and adjectives";
-input_hist7.type = "button";
-input_hist7.id = "inputordbog";
-input_hist7.onclick = function(){suche("http://rhssl1.uni-regensburg.de:8080/OCS/search?gimmePar=Give%2Bme%2Bthe%2Bfull%2Bparadigm!&mypos=Analysis&query=");return false;};
-
-var input_hist8 = document.createElement("input");
-input_hist8.value = 'WebmorphOCS Analysis';
-input_hist8.title = "Online Old Church Slavonic morphology - Analysis of verbs, nouns and adjectives";
-input_hist8.type = "button";
-input_hist8.id = "inputordbog";
-input_hist8.onclick = function(){suche("http://rhssl1.uni-regensburg.de:8080/OCS/search?gimmeAna=Give%2Bme%2Bthe%2Banalysis%21&anaQuery=");return false;};
-
 var input_transl1 = document.createElement("input");
 input_transl1.type = "button";
 input_transl1.value = "Google Translate";
@@ -484,11 +428,6 @@ var mk_multi_title_inhalt = document.createTextNode('Македонски пов
 mk_multi_title.setAttribute("class", "dictsubtitle");
 mk_multi_title.appendChild(mk_multi_title_inhalt);
 
-var hist_title = document.createElement('div');
-var hist_title_inhalt = document.createTextNode('Старославянски (исторически) речници / Старословенски (историски) речници / Slavic historical');
-hist_title.setAttribute("class", "dictsubtitle");
-hist_title.appendChild(hist_title_inhalt);
-
 var mk_de = document.createElement('div');
 var mk_de_inhalt = document.createTextNode('DE: ');
 mk_de.setAttribute("class", "sprachindikator");
@@ -585,15 +524,7 @@ ordbogform.appendChild(mk_de);
 ordbogform.appendChild(input23);
 ordbogform.appendChild(input24);
 ordbogform.appendChild(input20);
-ordbogform.appendChild(hist_title);
-ordbogform.appendChild(input_hist1);
-ordbogform.appendChild(input_hist2);
-ordbogform.appendChild(input_hist3);
-ordbogform.appendChild(input_hist4);
-ordbogform.appendChild(input_hist5);
-ordbogform.appendChild(input_hist6);
-//ordbogform.appendChild(input_hist7);
-//ordbogform.appendChild(input_hist8);
+
 
 //	#2 END	///////////////////
 
@@ -694,4 +625,3 @@ div.style.display = 'none';
 	loadjscssfile(ordbogurl+"bigger.css", "css");
 	}
 }
-
