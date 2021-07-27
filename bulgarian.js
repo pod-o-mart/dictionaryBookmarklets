@@ -602,7 +602,7 @@ linktitle.setAttribute("class", "linktitle");
 var linktitletext = document.createTextNode("documentation / other dictionaries");
 linktitle.appendChild(linktitletext);
 linktitle.title = "Get more information about this and other dictionary bookmarklets";
-linktitle.href = "https://podolak.net/en/bookmarklets";
+linktitle.href = "https://pod-o-mart.github.io/dictionaryBookmarklets";
 linktitle.target = "_blank";
 ordbogform.appendChild(linktitle);
 var divaussen = document.createElement('div');
