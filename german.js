@@ -596,7 +596,7 @@ linktitle.setAttribute("class", "linktitle");
 var linktitletext = document.createTextNode("Dokumentation / weitere Wörterbücher");
 linktitle.appendChild(linktitletext);
 linktitle.title = "Erfahre mehr über dieses und andere Wörterbuch-Bookmarklets";
-linktitle.href = "https://podolak.net/de/bookmarklets";
+linktitle.href = "https://pod-o-mart.github.io/dictionaryBookmarklets";
 linktitle.target = "_blank";
 ordbogform.appendChild(linktitle);
 var divaussen = document.createElement('div');
