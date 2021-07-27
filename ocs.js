@@ -122,6 +122,13 @@ input18.type = "button";
 input18.id = "inputordbog";
 input18.onclick = function(){suche('http://dic.academic.ru/searchall.php?s=1&d=1&SWord=');return false;};
 
+var input32 = document.createElement("input");
+input32.onclick = function(){suche("https://liturcorpora.ru/ruscorpora/find/?q=");return false;};
+input32.value = "Словарь Полякова";
+input32.title = "liturcorpora.ru";
+input32.type = "button";
+input32.id = "inputordbog";
+
 var input19 = document.createElement("input");
 input19.onclick = function(){suche("http://oesteuropastudier.dk/ordbog/index.php?a=srch&source=opensearch&q=");return false;};
 input19.value = "oesteuropastudier.dk";
@@ -511,6 +518,7 @@ ordbogform.appendChild(input23);
 ordbogform.appendChild(input25);
 ordbogform.appendChild(input26);
 ordbogform.appendChild(input18);
+ordbogform.appendChild(input32);
 //ordbogform.appendChild(grammatik_title);
 //ordbogform.appendChild(input60);
 //ordbogform.appendChild(input61);
