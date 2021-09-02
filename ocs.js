@@ -130,7 +130,7 @@ input32.type = "button";
 input32.id = "inputordbog";
 
 var input19 = document.createElement("input");
-input19.onclick = function(){suche("http://oesteuropastudier.dk/ordbog/index.php?a=srch&source=opensearch&q=");return false;};
+input19.onclick = function(){suche("https://ordbog.oesteuropastudier.dk/index.php?a=srch&source=opensearch&q=");return false;};
 input19.value = "oesteuropastudier.dk";
 input19.title = "";
 input19.type = "button";
