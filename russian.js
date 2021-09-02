@@ -234,48 +234,6 @@ input18.type = "button";
 input18.id = "inputordbog";
 input18.onclick = function(){suche('http://bezbukv.ru/mask/');;return false;};
 
-var input19 = document.createElement("input");
-input19.onclick = function(){suche2("http://oesteuropastudier.dk/ordbog/index.php?a=srch&source=opensearch&q=");return false;};
-input19.value = "oesteuropastudier.dk";
-input19.title = "";
-input19.type = "button";
-input19.id = "inputordbog";
-
-var input20 = document.createElement("input");
-input20.onclick = function(){suche("http://www.orthodic.org/?searchCs=&go.x=0&go.y=0&type=ru&searchRu=");return false;};
-input20.value = "Orthodic RU ⇒ OCS";
-input20.title = "";
-input20.type = "button";
-input20.id = "inputordbog";
-
-var input21 = document.createElement("input");
-input21.onclick = function(){suche("http://www.orthodic.org/?searchRu=&go.x=0&go.y=0&type=cs&searchCs=");return false;};
-input21.value = "Orthodic OCS ⇒ RU";
-input21.title = "";
-input21.type = "button";
-input21.id = "inputordbog";
-
-var input22 = document.createElement("input");
-input22.onclick = function(){suche("http://starling.rinet.ru/cgi-bin/response.cgi?root=%2Fusr%2Flocal%2Fshare%2Fstarling%2Fmorpho&morpho=1&basename=morpho\\vasmer\\vasmer&first=1&off=&method_word=beginning&ic_word=on&text_general=&method_general=substring&ic_general=on&text_origin=&method_origin=substring&ic_origin=on&text_trubachev=&method_trubachev=substring&ic_trubachev=on&text_editorial=&method_editorial=substring&ic_editorial=on&text_pages=&method_pages=substring&ic_pages=on&text_any=&method_any=substring&sort=word&ic_any=on&text_word=");return false;};
-input22.value = "Vasmer / Фасмер";
-input22.title = "";
-input22.type = "button";
-input22.id = "inputordbog";
-
-var input23 = document.createElement("input");
-input23.onclick = function(){suche3("http://etymolog.ruslang.ru/index.php?wildcards=checked&act=search&vasmer=checked&chernykh=checked&vinogradov=checked&wordhist=checked&novoe=checked&etymology=checked&word=");return false;};
-input23.value = "Этимология.ruslang.ru";
-input23.title = "";
-input23.type = "button";
-input23.id = "inputordbog";
-
-var input24 = document.createElement("input");
-input24.onclick = function(){suche("http://www.nevmenandr.net/slovo/cword.php?w=");return false;};
-input24.value = "«Слово о полку Игореве» - Параллельный корпус";
-input24.title = "";
-input24.type = "button";
-input24.id = "inputordbog";
-
 var input25 = document.createElement("input");
 input25.onclick = function(){suche("http://www.multitran.ru/c/m.exe?HL=2&l1=3&l2=2&s=");return false;};
 input25.value = "Multitran RU ⇔ DE";
@@ -430,20 +388,6 @@ input59.title = "Склонение по падежам словосочетан
 input59.type = "button";
 input59.id = "inputordbog";
 
-var input60 = document.createElement("input");
-input60.value = 'WebmorphOCS Paradigm';
-input60.title = "Online Old Church Slavonic morphology - Full paradigm from infinitive verbs, nouns and adjectives";
-input60.type = "button";
-input60.id = "inputordbog";
-input60.onclick = function(){suche("http://rhssl1.uni-regensburg.de:8080/OCS/search?gimmePar=Give%2Bme%2Bthe%2Bfull%2Bparadigm!&mypos=Analysis&query=");return false;};
-
-var input61 = document.createElement("input");
-input61.value = 'WebmorphOCS Analysis';
-input61.title = "Online Old Church Slavonic morphology - Analysis of verbs, nouns and adjectives";
-input61.type = "button";
-input61.id = "inputordbog";
-input61.onclick = function(){suche("http://rhssl1.uni-regensburg.de:8080/OCS/search?gimmeAna=Give%2Bme%2Bthe%2Banalysis%21&anaQuery=");return false;};
-
 var input_transl1 = document.createElement("input");
 input_transl1.type = "button";
 input_transl1.value = "Google Переводчик";
@@ -539,11 +483,6 @@ var ordbog_title = document.createElement('div');
 var ordbog_title_inhalt = document.createTextNode('Словари современного русского языка');
 ordbog_title.setAttribute("class", "dictsubtitle");
 ordbog_title.appendChild(ordbog_title_inhalt);
-
-var historisk_ordbog_title = document.createElement('div');
-var historisk_ordbog_title_inhalt = document.createTextNode('Диахронные (исторические) словари');
-historisk_ordbog_title.setAttribute("class", "dictsubtitle");
-historisk_ordbog_title.appendChild(historisk_ordbog_title_inhalt);
 
 var deutsch_title = document.createElement('div');
 var deutsch_title_inhalt = document.createTextNode('Немецко-русские словари / Russisch-deutsche Wörterbücher');
@@ -772,15 +711,6 @@ ordbogform.appendChild(input16);
 ordbogform.appendChild(input17);
 ordbogform.appendChild(input18);
 ordbogform.appendChild(input14);
-ordbogform.appendChild(historisk_ordbog_title);
-ordbogform.appendChild(input19);
-ordbogform.appendChild(input20);
-ordbogform.appendChild(input21);
-ordbogform.appendChild(input22);
-ordbogform.appendChild(input23);
-ordbogform.appendChild(input24);
-//ordbogform.appendChild(input60);
-//ordbogform.appendChild(input61);
 ordbogform.appendChild(deutsch_title);
 ordbogform.appendChild(input25);
 ordbogform.appendChild(input28);
