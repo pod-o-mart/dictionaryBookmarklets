@@ -1,129 +1,252 @@
-#ordbog  {
-	all:initial;
+/* 
+Vanilla Reset
+http://noscope.com/vanilla-css
+CSSresetr
+*/
+/**
+* Start Vanilla CSS 1.0.0
+*/
+#ordbog {
+font: 9pt/1.5em Arial, Helvetica, sans-serif;
 }
-
-input {
-	width:auto!important;
+#ordbog pre, #ordbog code, #ordbog tt {
+font: 1em/1.5em 'Andale Mono', 'Lucida Console', monospace;
 }
+#ordbog h1, #ordbog h2, #ordbog h3, #ordbog h4, #ordbog h5, #ordbog h6, #ordbog b, #ordbog strong {
+font-weight: bold;
+}
+#ordbog em, #ordbog i, #ordbog dfn {
+font-style: italic;
+}
+#ordbog dfn {
+font-weight:bold;
+}
+#ordbog p, #ordbog code, #ordbog pre, #ordbog kbd {
+margin:0 0 1.5em 0;
+}
+#ordbog blockquote {
+margin:0 1.5em 1.5em 1.5em;
+}
+#ordbog cite {
+font-style: italic;
+}
+#ordbog li ul, #ordbog li ol {
+margin:0 1.5em;
+}
+#ordbog ul, #ordbog ol {
+margin:0 1.5em 1.5em 1.5em;
+}
+#ordbog ul li {
+list-style-type:disc;
+}
+#ordbog ol li {
+list-style-type:decimal;
+}
+#ordbog ol ol li {
+list-style: upper-alpha;
+}
+#ordbog ol ol ol li {
+list-style: lower-roman;
+}
+#ordbog ol ol ol ol li {
+list-style: lower-alpha;
+}
+#ordbog dl {
+margin:0 0 1.5em 0;
+}
+#ordbog dl dt {
+font-weight:bold;
+}
+#ordbog dd {
+margin-left:1.5em;
+}
+#ordbog table {
+margin-bottom:1.4em;
+width:100%;
+}
+#ordbog th {
+font-weight:bold;
+}
+#ordbog th, #ordbog td, #ordbog caption {
+padding:4px 10px 4px 5px;
+}
+#ordbog tfoot {
+font-style:italic;
+}
+#ordbog sup, #ordbog sub {
+line-height:0;
+}
+#ordbog abbr, #ordbog acronym {
+border-bottom: 1px dotted;
+}
+#ordbog address {
+margin:0 0 1.5em;
+font-style:italic;
+}
+#ordbog del {
+text-decoration: line-through;
+}
+#ordbog pre {
+margin:1.5em 0;
+white-space:pre;
+}
+#ordbog img.centered, #ordbog .aligncenter, #ordbog div.aligncenter {
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+#ordbog img.alignright {
+display: inline;
+}
+#ordbog img.alignleft {
+display: inline;
+}
+#ordbog .alignright {
+float: right;
+margin-left: 10px;
+}
+#ordbog .alignleft {
+float: left;
+margin-right: 10px;
+}
+#ordbog  html .clearfix {
+height: 1%;
+}
+#ordbog  + html .clearfix {
+display: inline-block;
+}
+#ordbog .clearfix:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+#ordbog  html .group {
+height: 1%;
+}
+#ordbog  + html .group {
+display: inline-block;
+}
+#ordbog .group:after {
+content: ".";
+display: block;
+height: 0;
+clear: both;
+visibility: hidden;
+}
+/**
+* End Vanilla CSS
+*/
 
 #ordbog, .ordbog-indhold, #ordbogform, #inputordbog, #texto, #texto2, #texto3, .oben, .spantitle, .linktitle, input#texto, input#texto2, input#texto3, .lupe, .spantitle, .spansubtitle, .dictsubtitle {
-	font: normal normal 18px verdana, sans-serif !important;
+font: normal normal 18px verdana, sans-serif !important;
 }
 
 textarea {
-
-	margin: 0 auto;
+margin: 0 auto;
   position: relative;
 }
 
-table, td {
-   
-}
-
 td {
-	width:50%;
-	 position: relative;
+width:50%;
+ position: relative;
 }
-
 
 #ordbog {
-	display: block;
-	text-align:left;
-	position: fixed;
-	z-index: 9999;
-	padding-top: 100px;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgba(0,0,0,0.4);
-	margin: auto;
-	direction: ltr !important;
-
+display: block;
+text-align:left;
+position: fixed;
+z-index: 9999;
+padding-top: 100px;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0,0,0,0.4);
+margin: auto;
+direction: ltr !important;
 }
 
 .ordbog-indhold {
-	background-color: #26374D;
-	text-align:left;
-	margin: auto;
-	width: 75%;
-	max-height: 75%;
-	overflow-y: scroll;
-	padding: 5px;
-	border: 3px solid black;
-	border-radius: 10px;
-	box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+background-color: rgba(0,0,0,0.8);
+text-align:left;
+margin: auto;
+width: 75%;
+max-height: 75%;
+overflow-y: scroll;
+padding: 5px;
+border-radius: 5px;
 }
 
 .luk, .minimer {
-	color: #aaaaaa;
-	float: right;
-	font-size: 28px;
-	font-weight: bold;
+color: #aaaaaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
 }
 
 .luk:hover,
 .luk:focus,
 .minimer:hover,
 .minimer:focus {
-	color: white;
-	text-decoration: none;
-	cursor: pointer;
+color: white;
+text-decoration: none;
+cursor: pointer;
 }
 
 #ordbogform, #ordbogform:active, #ordbogform:focus, #ordbogform:hover, #ordbogform:visited {
-	background-color:#26374D;
-	text-align:justify;
+text-align:justify;
 }
 
 #inputordbog, #inputordbog:active, #inputordbog:visited, #texto, #texto2, #texto3, select {
-	border: 1px solid black;
-	border-radius:4px;
-	border-width: 1px;
-	border-collapse: separate;
-	background-color:#ccc;
-	cursor: pointer;
+border: 1px solid black;
+border-radius:4px;
+border-width: 1px;
+border-collapse: separate;
+background-color:#ccc;
+cursor: pointer;
 }
 
 #ordbogform, #inputordbog, #ordbogform:active, #inputordbog:active, #ordbogform:focus, #inputordbog:focus, #ordbogform:hover, #inputordbog:hover, #ordbogform:visited, #ordbogform:visited {
-	text-align:left;
-	margin: 1px;
-	padding: 3px !important;
-	font: normal normal normal 12px verdana, sans-serif !important;
-	color:initial;
-	box-shadow:none;
-	min-height: 0;
-	transition: none;
-	}
+text-align:left;
+margin: 1px;
+padding: 3px !important;
+font: normal normal normal 12px verdana, sans-serif !important;
+color:initial;
+box-shadow:none;
+min-height: 0;
+transition: none;
+}
 
 #inputordbog:hover {
-	background-color:white;
+background-color:white;
 }
 
 #inputordbog:active {
-	background-color:gray;
-	color:white;
+background-color:gray;
+color:white;
 }
 
 #ordbogform {
-	overflow:hidden;
+overflow:hidden;
 }
 
 #texto2, #texto3 {
 position:relattve;
-	background-color:white;
-	cursor:text;
-	height:32px;
-	width:80%;
+background-color:white;
+cursor:text;
+height:32px;
+width:80%;
 }
 
 #texto {
 margin-right:10px;
-	background-color:white;
-	cursor:text;
-	height:32px;
-	width:30%;
+background-color:white;
+cursor:text;
+height:32px;
+width:30%;
 }
 
 #texto2 {
@@ -131,20 +254,19 @@ margin-left:0;
 }
 
 .oben {
-	display:block;
-	margin-bottom:5px;
+display:block;
+margin-bottom:5px;
 }
 
 .spantitle {
 padding: 0;
 color: lightgrey;
 width:100%;
-	font-weight: bold !important;
+font-weight: bold !important;
 }
 
 a.linktitle {
 padding: 0;
-background-color: #26374D;
 text-decoration: underline;
 color:grey;
 font: normal normal bold 10px verdana, sans-serif !important;
@@ -154,8 +276,6 @@ margin-top:15px;
 }
 
 a.linktitle:hover, a.linktitle:focus {
-
-background-color: #26374D !important;
 text-decoration: none;
 color:lightgrey;
 font-weight:normal;
@@ -209,22 +329,27 @@ text-shadow: 3px 2px 10px black;
 }
 
 #ordbogklein {
-	background-color: #26374D;
-	z-index:999;
-	position: fixed;
-	top:0;
-	right:0;
-	border-left: 3px solid black;
-	border-bottom: 3px solid black;
-	border-top:0;
-	border-right:0;
-	border-radius:0 0 0 10px;
-	box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.4), 0 12px 40px 0 rgba(0, 0, 0, 0.4);
-	padding:20px;
+background-color: rgba(0,0,0,0.8);
+z-index:999;
+position: fixed;
+bottom:0;
+right:0;
+border:0;
+border-radius:5px 0 0 0;
+padding:20px;
 }
 
 #ordbogklein a {
-	color:white;
-	font-size:16px;
-	font-weight:bold;
+font: normal normal 16px verdana, sans-serif !important;
+color:white;
+font-weight:bold;
+}
+
+#ordbogklein a {
+font: bold 16px verdana, sans-serif !important;
+color:white;
+}
+
+#ordbogklein a:hover {
+text-decoration: underline;
 }
