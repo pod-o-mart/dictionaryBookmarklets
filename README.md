@@ -3,7 +3,7 @@
 - Transliteration functions for Old Church Slavonic, Russian and Yiddish
 - Virtual keyboard for Cyrillic / Hebrew script
 
-[Get the ready-to-use bookmarklets here](https://pod-o-mart.github.io/dictionaryBookmarklets/)
+**[Get the ready-to-use bookmarklets here](https://pod-o-mart.github.io/dictionaryBookmarklets/)**
 
 
 Credits
