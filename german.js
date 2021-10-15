@@ -6,9 +6,9 @@
 // V 1.4 - 2019-10-10: Dictionary address updates
 // V 1.5 - 2019-10-11: New corpora and dictionaries, virtual keyboard automatically turned to German
 // V 1.6 - 2021-01-01: Removed canoo, GernWeb. Added grammis, ZweiDat
-// Read more: https://podolak.net/en/bookmarklets
+// V 1.7 - 2021-10-14: Moved bigger.css into german.js
+// Read more: https://pod-o-mart.github.io/keyboardBookmarklets
 // Author: Martin Podolak
-// Contact: www.podolak.net
 // This work is licensed under the GNU General Public License v3.0
 
 var kblang = { lang : "Deutsch" };
@@ -96,7 +96,9 @@ inddata.setAttribute("onkeypress", "inputenter(event)");
 
 function inputenter(event) {
 if (event.keyCode == 13) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	var element = document.getElementById('texto'),
 	style = window.getComputedStyle(element),
 	height = style.getPropertyValue('height');
@@ -108,7 +110,9 @@ if (event.keyCode == 13) {
 
 var f = t.toString();
  if (f.indexOf('\n') >= 0) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 
 inddata.id="texto";
@@ -522,7 +526,9 @@ var umbruch4 = document.createElement('br');
 //var umbruch5 = document.createElement('br');
 
 function bigger2() {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 
 
@@ -685,6 +691,8 @@ div.style.display = 'block';
 div.style.display = 'none';
 
  if (inddata.value.indexOf('\n') >= 0) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 }

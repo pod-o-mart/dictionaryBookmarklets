@@ -9,17 +9,6 @@
     font-style: normal;
 }
 
-@font-face {
-    font-family: 'FiraSlav';
-    src: url('https://sci.ponomar.net/fonts/FiraSlav-Bold.eot');
-    src: url('https://sci.ponomar.net/fonts/FiraSlav-Bold.eot?#iefix') format('embedded-opentype'),
-	url('https://sci.ponomar.net/fonts/FiraSlav-Bold.woff2') format('woff2'),
-	url('https://sci.ponomar.net/fonts/FiraSlav-Bold.woff') format('woff'),
-	url('https://sci.ponomar.net/fonts/FiraSlav-Bold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
 #keyboardInputMaster {
   position:absolute;
   font:normal 11px Arial,sans-serif;

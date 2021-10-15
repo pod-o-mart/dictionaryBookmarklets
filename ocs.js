@@ -4,10 +4,10 @@
 // V 1.1 - 2018-06-08: New dictionaries: academic.ru, Словарь древнерусского языка (XI—XIV вв.); numerals converter. Minor bugfixes
 // V 1.2 - 2019-10-10: New keyboard codepage, dictionary address updates, minor bugfixes
 // V 1.3 - 2019-10-11: Virtual keyboard automatically turned to OCS
-// Read more: https://podolak.net/en/bookmarklets
+// V 1.4 - 2021-10-15: Old Cyrillic notepad including font operations added
+// Read more: https://pod-o-mart.github.io/slavonicBookmarklets
 // Author: Martin Podolak
-// Contact: www.podolak.net
-// This work is licensed under the GNU General Public License v3.0
+// This work is licensed under the MIT License https://github.com/pod-o-mart/keyboardBookmarklets/blob/master/LICENSE
 
 var kblang = { lang : "\u{421}\u{43B}\u{43E}\u{432}\u{463}\u{43D}\u{44C}\u{441}\u{43A}\u{44A}" };
 if(!document.getElementById("ordbogform"))
@@ -81,9 +81,10 @@ ordbogform.id ="ordbogform";
 ordbogform.name="ordbogform";
 ordbogform.method="post";
 ordbogform.setAttribute("onsubmit", "return false");
+ordbogform.setAttribute("style", "display:block;");
 ordbogform.onsubmit="return false";
 var inddata = document.createElement('textarea');
-inddata.setAttribute("class", "keyboardInput");
+inddata.setAttribute("style", "margin-left:7px;");
 inddata.setAttribute("rows", "1"); 
 inddata.setAttribute("cols", "15"); 
 inddata.value =t;
@@ -92,7 +93,9 @@ inddata.setAttribute("onkeypress", "inputenter(event)");
 
 function inputenter(event) {
 if (event.keyCode == 13) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	kladdefelt.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	var element = document.getElementById('texto'),
 	style = window.getComputedStyle(element),
 	height = style.getPropertyValue('height');
@@ -104,14 +107,19 @@ if (event.keyCode == 13) {
 
 var f = t.toString();
  if (f.indexOf('\n') >= 0) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	kladdefelt.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 
 inddata.id="texto";
-s=document.createElement('script');s.id='r6109_vkbsgp';s.type='text/javascript';s.src=ordbogurl+'keyboard-slav.js?,true,false';document.body.appendChild(s);void(null);
+s=document.createElement('script');
+s.id='r6109_vkbsgp';
+s.type='text/javascript';
+s.src=ordbogurl+'keyboard-slav.js?,true,false';
+document.body.appendChild(s);void(null);
 inddata.setAttribute("class", "keyboardInput");
 inddata.value =t;
-inddata.id="texto";
 
 //	#1: The URLs. Be aware of the ascending numbering and do not forget to call them below at #2
 
@@ -234,27 +242,58 @@ input61.type = "button";
 input61.id = "inputordbog";
 input61.onclick = function(){suche("http://rhssl1.uni-regensburg.de:8080/OCS/search?gimmeAna=Give%2Bme%2Bthe%2Banalysis%21&anaQuery=");return false;};
 
-
 //	#1 END	///////////////////
 
 var divinnen = document.createElement('div');
 divinnen.setAttribute("class", "ordbog-indhold");
+divinnen.style.minHeight = "60%";
+
+var headline = document.createElement('div');
+headline.id = "headline";
+headline.style.display = "flex";
+headline.style.justifyContent = "space-between";
+divinnen.appendChild(headline);
+
+var spantitle = document.createElement('div');
+spantitle.setAttribute("class", "spantitle");
+var texttitle = document.createTextNode('OCS dicts');
+spantitle.appendChild(texttitle);
+
+var spansubtitle = document.createElement('p');
+spansubtitle.setAttribute("class", "spansubtitle");
+spansubtitle.setAttribute("style", "display:block;");
+var textsubtitle = document.createTextNode('Old Church Slavonic dictionaries / Словари старославянского языка');
+spansubtitle.appendChild(textsubtitle);
+
+var spansubtitle_notepad = document.createElement('p');
+spansubtitle_notepad.setAttribute("class", "spansubtitle");
+spansubtitle_notepad.setAttribute("style", "display:none;");
+var textsubtitle_notepad = document.createTextNode('Notepad for Old Cyrillic / Блокнот старославянской кириллицы');
+spansubtitle_notepad.appendChild(textsubtitle_notepad);
+
+divinnen.appendChild(spansubtitle);
+divinnen.appendChild(spansubtitle_notepad);
 
 var textluk = document.createTextNode('×');
 var spanluk = document.createElement('span');
 spanluk.setAttribute("class", "luk");
-spanluk.title ="Close window (deletes all input)";
+spanluk.title ="close window ― CAUTION: deletes all input / закрыть окно ― ОСТОРОЖНО: весь ввод текста будет удален";
 spanluk.appendChild(textluk);
-divinnen.appendChild(spanluk);
-divinnen.appendChild(ordbogform);
-
 var textminimer = document.createTextNode('_');
 var spanminimer = document.createElement('span');
 spanminimer.setAttribute("class", "minimer");
-spanminimer.title ="Minimize dictionaries window to the upper right corner (keeps input)";
+spanminimer.title ="Minimize dictionaries window to the lower right corner ― keeps input / свернуть окно ― ввод текста сохраняется";
 spanminimer.appendChild(textminimer);
-divinnen.appendChild(spanminimer);
+var close_minimize = document.createElement('div');
+close_minimize.id = "close_minimize";
+close_minimize.style.display = 'flex';
+close_minimize.appendChild(spanminimer);
+close_minimize.appendChild(spanluk);
+headline.appendChild(close_minimize);
+
 divinnen.appendChild(ordbogform);
+
+//////////////////////////////////////////////////////////////
 
 var spanoben = document.createElement('span');
 spanoben.setAttribute("class", "oben");
@@ -273,30 +312,236 @@ button1.type = "button";
 button1.value = "enlarge / увеличить";
 button1.id = "inputordbog";
 button1.setAttribute("class", "bigger");
-button1.title = "This will enlarge the input field";
+button1.title = "this will enlarge the input field / увеличить поле ввода";
 button1.setAttribute("onclick", "bigger2()");
 spanoben.appendChild(button1);
 
-var spantitle = document.createElement('span');
-spantitle.setAttribute("class", "spantitle");
-var texttitle = document.createTextNode('OCS dicts');
-spantitle.appendChild(texttitle);
+var button2 = document.createElement('input');
+button2.type = "button";
+button2.value = "copy to notepad / скопировать в блокнот";
+button2.id = "inputordbog";
+button2.setAttribute("class", "copy2notepad");
+button2.title = "This will append the input text to the text on the notepad / добавить текст поискового поля к тексту на блокноте";
+button2.setAttribute("onclick", "copy2notepad()");
+spanoben.appendChild(button2);
 
-var spansubtitle = document.createElement('p');
-spansubtitle.setAttribute("class", "spansubtitle");
-spansubtitle.setAttribute("style", "text-decoration:underline;");
-var textsubtitle = document.createTextNode('Old Church Slavonic dictionaries / Словари старославянского языка');
-spansubtitle.appendChild(textsubtitle);
+headline.appendChild(spantitle);
 
-var ueberschrift = document.createElement('div');
-ueberschrift.setAttribute("style", "display:inline;");
-ueberschrift.appendChild(spantitle);
+var dicts_notes_mode_div = document.createElement("div");
+dicts_notes_mode_div.className = "dicts_notes_mode_div";
+var dicts_notes_reiter_title = document.createElement("div");
+dicts_notes_reiter_title.className = "dicts_notes_reiter_titel";
+dicts_notes_reiter_title.innerHTML = "Mode:<br />Режим:";
+dicts_notes_mode_div.appendChild(dicts_notes_reiter_title);
+var dicts_notes_reiter1 = document.createElement("div");
+dicts_notes_reiter1.className = "dicts_notes_reiter";
+dicts_notes_reiter1.innerHTML = "Dictionaries<br />Словари";
+dicts_notes_reiter1.title = "Lookup and transliteration functions / Поисковые функции";
+dicts_notes_reiter1.style.backgroundColor = "rgba(255,255,255,0.4)";
+dicts_notes_reiter1.setAttribute("onclick", "function_dictionaries()");
+dicts_notes_mode_div.appendChild(dicts_notes_reiter1);
+var dicts_notes_reiter2 = document.createElement("div");
+dicts_notes_reiter2.className = "dicts_notes_reiter";
+dicts_notes_reiter2.innerHTML = "Notepad<br />Блокнот";
+dicts_notes_reiter2.title = "Old Cyrillic writing aid and font operations / Применеиия старославянских шрифтов";
+dicts_notes_reiter2.setAttribute("onclick", "function_notepad()");
+dicts_notes_mode_div.appendChild(dicts_notes_reiter2);
+headline.appendChild(dicts_notes_mode_div);
+
+// toggle functions dictionaries to notepad
+function function_dictionaries(){
+  document.getElementById('ordbogform').style.display = 'block';
+  document.getElementById('kladde').style.display = 'none';
+  spansubtitle_notepad.setAttribute("style", "display:none;");
+  spansubtitle.setAttribute("style", "display:block;");
+  dicts_notes_reiter1.style.backgroundColor = "rgba(255,255,255,0.4)";
+  dicts_notes_reiter2.style.backgroundColor = "rgba(255,255,255,0)";
+}
+
+function function_notepad(){
+  document.getElementById('ordbogform').style.display = 'none';
+  document.getElementById('kladde').style.display = 'flex';
+  spansubtitle_notepad.setAttribute("style", "display:block;");
+  spansubtitle.setAttribute("style", "display:none;");
+  dicts_notes_reiter1.style.backgroundColor = "rgba(255,255,255,0)";
+  dicts_notes_reiter2.style.backgroundColor = "rgba(255,255,255,0.4)";
+}
+
+function copy2notepad(){
+  var copyText = document.getElementById("texto");
+  var existingText = document.getElementById("texto2");
+  copyText.select();
+  existingText.select();
+  texto2.value = existingText.value + copyText.value;
+  document.getElementById('ordbogform').style.display = 'none';
+  document.getElementById('kladde').style.display = 'flex';
+  spansubtitle_notepad.setAttribute("style", "display:block;");
+  spansubtitle.setAttribute("style", "display:none;");
+  dicts_notes_reiter1.style.backgroundColor = "rgba(255,255,255,0)";
+  dicts_notes_reiter2.style.backgroundColor = "rgba(255,255,255,0.4)";
+}
+
+var kladde = document.createElement('div');
+kladde.id ="kladde";
+kladde.setAttribute("style", "display:none;");
+
+var kladdeleft = document.createElement('div');
+kladdeleft.id = "kladdeleft";
+kladdeleft.setAttribute("style", "width:calc(100% - 200px);padding:6px;");
+kladde.appendChild(kladdeleft);
+
+var kladderight = document.createElement('div');
+kladderight.id = "kladderight";
+kladderight.setAttribute("style", "width:200px;padding:6px;");
+kladde.appendChild(kladderight);
+
+var kladdefelt = document.createElement('textarea');
+kladdefelt.id = "texto2";
+kladdefelt.setAttribute("class", "keyboardInput");
+kladdefelt.classList.add("slavNotepad");
+kladdefelt.setAttribute("style", "width:100%!important;height:150px!important;font-family:Monomakh Unicode!important;font-size:1.2em!important;");
+spanoben.appendChild(kladde);
+
+var op_title = document.createElement('div');
+var op_title_inhalt = document.createTextNode('Font operations / Применеиия шрифтов');
+op_title.setAttribute("class", "dictsubtitle");
+op_title.appendChild(op_title_inhalt);
+
+var button_op_firaslav = document.createElement('input');
+button_op_firaslav.type = "button";
+button_op_firaslav.id = "inputordbog";
+button_op_firaslav.value = "FiraSlav2website";
+button_op_firaslav.title = "Apply FiraSlav font to current website / применить шрифт FiraSlav на данный сайт";
+button_op_firaslav.setAttribute("onclick", "op_firaslav()");
+
+var button_op_monomakh = document.createElement('input');
+button_op_monomakh.type = "button";
+button_op_monomakh.id = "inputordbog";
+button_op_monomakh.value = "Monomakh2website";
+button_op_monomakh.title = "Apply Monomakh font to current website / применить шрифт Monomakh на данный сайт";
+button_op_monomakh.setAttribute("onclick", "op_monomakh()");
+
+divinnen.appendChild(kladde);
+kladdeleft.appendChild(kladdefelt);
+kladdeleft.appendChild(op_title);
+kladdeleft.appendChild(button_op_firaslav);
+kladdeleft.appendChild(button_op_monomakh);
+
+// font operations
+function op_firaslav(e){
+	var t=document.getElementsByTagName("head")[0],a=document.createElement("link");
+	a.href=e,a.rel="stylesheet",t.append(a)
+	var a=document.getElementsByTagName("*");
+	for(i=0;i<a.length;i++)a[i].style.setProperty("font-family",'"FiraSlav","important"');
+	document.getElementById("ordbog").style.display = "none";
+	document.getElementById("ordbogklein").style.display = "block"; 
+}
+
+function op_monomakh(e){
+	var t=document.getElementsByTagName("head")[0],a=document.createElement("link");
+	a.href=e,a.rel="stylesheet",t.append(a)
+	var a=document.getElementsByTagName("*");
+	for(i=0;i<a.length;i++)a[i].style.setProperty("font-family",'"Monomakh Unicode","important"');
+	document.getElementById("ordbog").style.display = "none";
+	document.getElementById("ordbogklein").style.display = "block"; 
+}
+
+var dicts_notes_font = document.createElement('form');
+dicts_notes_font.className = "dicts_notes_font"; 
+var dicts_notes_font_title = document.createElement('span');
+dicts_notes_font_title.innerHTML = "<strong>Font / Шрифт:</strong>";
+dicts_notes_font.appendChild(dicts_notes_font_title);
+var br1 = document.createElement('br');
+dicts_notes_font.appendChild(br1);
+var dicts_notes_font_input1 = document.createElement('input');
+dicts_notes_font_input1.setAttribute("onclick", "function_font_monomakh()");
+dicts_notes_font_input1.id = "font_monomakh";
+dicts_notes_font_input1.setAttribute("type", "radio");
+dicts_notes_font_input1.setAttribute("name", "dicts_notes_font");
+dicts_notes_font_input1.setAttribute("checked", "checked");
+dicts_notes_font_input1.value = "Monomakh (ustav)";
+dicts_notes_font_input1.title = "Ustav font / устав";
+dicts_notes_font.appendChild(dicts_notes_font_input1);
+var dicts_notes_font_label1 = document.createElement("label");
+dicts_notes_font_label1.setAttribute("for", "monomakh");
+dicts_notes_font_label1.value = "Monomakh (ustav)";
+dicts_notes_font_label1.innerHTML = "Monomakh:  <span class='monomakhfont'>Аꙁъбѹ́ка</span>";
+dicts_notes_font_label1.title = "font family: ustav / шрифт в стиле устав для научных изданий"
+dicts_notes_font.appendChild(dicts_notes_font_label1);
+var br2 = document.createElement('br');
+dicts_notes_font.appendChild(br2);
+var dicts_notes_font_input2 = document.createElement("input");
+dicts_notes_font_input2.setAttribute("onclick", "function_font_firaslav()");
+dicts_notes_font_input2.id = "font_firaslav";
+dicts_notes_font_input2.setAttribute("type", "radio");
+dicts_notes_font_input2.setAttribute("name", "dicts_notes_font");
+dicts_notes_font.appendChild(dicts_notes_font_input2);
+var dicts_notes_font_label2 = document.createElement("label");
+dicts_notes_font_label2.setAttribute("for", "firaslav");
+dicts_notes_font_label2.value = "FiraSlav (monospace)";
+dicts_notes_font_label2.innerHTML = "FiraSlav:  <span class='firaslavfont'>Аꙁъбѹ́ка</span>";
+dicts_notes_font_label2.title = "font family: monospace (for technical work) / моноширинный шрифт, предназначенный для технической работы";
+dicts_notes_font.appendChild(dicts_notes_font_label2);
+var br4 = document.createElement('br');
+dicts_notes_font.appendChild(br4);
+var dicts_notes_font_input4 = document.createElement("input");
+dicts_notes_font_input4.setAttribute("onclick", "function_font_sansserif()");
+dicts_notes_font_input4.id = "font_sansserif";
+dicts_notes_font_input4.setAttribute("type", "radio");
+dicts_notes_font_input4.setAttribute("name", "dicts_notes_font");
+dicts_notes_font.appendChild(dicts_notes_font_input4);
+var dicts_notes_font_label4 = document.createElement("label");
+dicts_notes_font_label4.setAttribute("for", "sansserif");
+dicts_notes_font_label4.value = "Sans-serif";
+dicts_notes_font_label4.innerHTML = "Arimo:  <span class='arimofont'>Аꙁъбѹ́ка</span>";
+dicts_notes_font_label4.title = "font family: sans serif";
+dicts_notes_font.appendChild(dicts_notes_font_label4);
+var br3 = document.createElement('br');
+dicts_notes_font.appendChild(br3);
+var dicts_notes_font_input3 = document.createElement("input");
+dicts_notes_font_input3.setAttribute("onclick", "function_font_serif()");
+dicts_notes_font_input3.id = "font_serif";
+dicts_notes_font_input3.setAttribute("type", "radio");
+dicts_notes_font_input3.setAttribute("name", "dicts_notes_font");
+dicts_notes_font.appendChild(dicts_notes_font_input3);
+var dicts_notes_font_label3 = document.createElement("label");
+dicts_notes_font_label3.setAttribute("for", "serif");
+dicts_notes_font_label3.value = "Serif";
+dicts_notes_font_label3.innerHTML = "System:  <span class='systemfont'>Аꙁъбѹ́ка</span>";
+dicts_notes_font_label3.title = "font family: serif (as defined in your browser)";
+dicts_notes_font.appendChild(dicts_notes_font_label3);
+
+kladderight.appendChild(dicts_notes_font);
+
+var dicts_notes_font_download = document.createElement('span');
+dicts_notes_font_download.className = "dictsubtitle"; 
+dicts_notes_font_download.innerHTML = "<div style='margin:20px 3px 0 3px;border:1px solid white;border-radius:3px;padding:3px 0 3px 5px;'><span style='font-weight:normal;'>In order to use your text with the font of your choice elsewhere on your computer, you will need to download the corresponding font:<br /><strong><a style='margin-top:5px;' href='https://sci.ponomar.net/fonts.html' target='_blank'><em>Monomakh</em></strong> and <strong><em>FiraSlav</em></strong></a><br /><a style='margin-top:5px;' href='https://fonts.google.com/specimen/Arimo?preview.text=%D0%90%EA%99%81%D1%8A%D0%B1%D1%B9%CC%81%D0%BA%D0%B0&preview.text_type=custom' target='_blank'><strong><em>Arimo</em></strong></a></span></div>";
+kladderight.appendChild(dicts_notes_font_download);
+
+function function_font_monomakh(){
+	document.getElementById('texto2').style.fontFamily = 'Monomakh Unicode!important';
+	document.getElementById('texto2').setAttribute("style", "font-family:Monomakh Unicode!important;font-size:1.5em!important;");
+}
+
+function function_font_firaslav(){
+	document.getElementById('texto2').style.fontFamily = 'FiraSlav!important';
+	document.getElementById('texto2').setAttribute("style", "font-family:'FiraSlav', monospace!important;font-size:1.2em!important;");
+}
+
+function function_font_serif(){
+	document.getElementById('texto2').style.fontFamily = 'serif!important';
+	document.getElementById('texto2').setAttribute("style", "font-family:serif!important;font-size:1.2em!important;");
+}
+
+function function_font_sansserif(){
+	document.getElementById('texto2').style.fontFamily = 'Arimo!important';
+	document.getElementById('texto2').setAttribute("style", "font-family:'Arimo', sans-serif!important;font-size:1.2em!important;");
+}
+
+headline.appendChild(close_minimize);
+
 var unterschriftbr = document.createElement('br');
-ueberschrift.appendChild(unterschriftbr);
-
-
-spanoben.appendChild(ueberschrift);
-spanoben.appendChild(spansubtitle);
+spantitle.appendChild(unterschriftbr);
 ordbogform.appendChild(spanoben);
 
 var transliteration_title = document.createElement('div');
@@ -477,7 +722,6 @@ functiontranslit.appendChild(dictinput1e);
 functiontranslit.appendChild(dictinput1f);
 functiontranslit.appendChild(dictinput1c);
 
-
 var dictform1 = document.createElement("form");
 dictform1.setAttribute("action", "http://prevodnik.gorazd.org/old-church-slavonic-numerals-converter");
 dictform1.setAttribute("name", "formular");
@@ -490,7 +734,7 @@ dictform1a.type = "hidden";
 dictform1a.id = "text";
 
 var dictform1b = document.createElement("input");
-dictform1b.value = "Convert";
+dictform1b.value = "convert / преобразить";
 dictform1b.title = "Slovanský ústav AV ČR / Slavonic Institute of the Academy of Sciences of the Czech Republic‎";
 dictform1b.type = "submit";
 dictform1b.name = "tlacitko";
@@ -499,7 +743,9 @@ dictform1.appendChild(dictform1a);
 dictform1.appendChild(dictform1b);
 
 function bigger2() {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	kladdefelt.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 
 //	#2: Call here the URLs which have been declared above.
@@ -531,16 +777,14 @@ ordbogform.appendChild(input24);
 ordbogform.appendChild(input31);
 ordbogform.appendChild(br3);
 
-
-
 //	#2 END	///////////////////
 
 var linktitle = document.createElement('a');
 linktitle.setAttribute("class", "linktitle");
-var linktitletext = document.createTextNode("documentation / other dictionaries");
+var linktitletext = document.createTextNode("Documentation and other dictionaries / Документация и дополнительные словари");
 linktitle.appendChild(linktitletext);
-linktitle.title = "Get more information about this and other dictionary bookmarklets";
-linktitle.href = "https://pod-o-mart.github.io/dictionaryBookmarklets";
+linktitle.title = "Get more information about this and other dictionary bookmarklets / Узнать больше об этой программе";
+linktitle.href = "https://pod-o-mart.github.io/slavonicBookmarklets";
 linktitle.target = "_blank";
 ordbogform.appendChild(linktitle);
 var divaussen = document.createElement('div');
@@ -552,41 +796,10 @@ var ordbogspan = document.getElementsByClassName("luk")[0];
 var ordbogkleinspan = document.getElementsByClassName("minimer")[0];
 ordbog.style.display = "block";
 
-/* Bookmarklet changing project
-var linkrussian = document.createElement('p');
-linkrussian.setAttribute("id", "linkrussian2");
-var linkrussiantext = document.createTextNode("Change to Russian");
-linkrussian.appendChild(linkrussiantext);
-ordbogform.appendChild(linkrussian);
-
-linkrussian.onclick = function(event) {
-	var t=window.getSelection?window.getSelection():document.getSelection?document.getSelection():(document.selection&&document.selection.createRange)?document.selection.createRange().text:'';
-if(t!='');
-(function(d){
-	var s=d.createElement('script');
-		s.type='text/javascript';
-		s.charset='utf-8';
-		s.async=true;
-		s.src='https://podolak.net/doc/bookmarklets/dicts/russian.js';
-		d.body.appendChild(s);
-		}
-	(document));
-	if (event.target == linkrussian) {
-    var div = document.getElementById('ordbog');
-    if (div.style.display !== 'none') {
-        div.style.display = 'none';
-	}
-	    else {
-        div.style.display = 'block';
-    }
-	}
-}
-Bookmarklet changing project End*/
-
 var divaussenklein = document.createElement('div');
 divaussenklein.setAttribute("id", "ordbogklein");
 var divaussenkleina = document.createElement('a');
-divaussenkleina.title = "Click to restore dictionaries window";
+divaussenkleina.title = "click to restore dictionaries window / восстановить окно";
 divaussenkleina.setAttribute("onmousedown", "display()");
 divaussenklein.appendChild(divaussenkleina);
 var divaussenkleintext = document.createTextNode("OCS dicts");
@@ -660,7 +873,9 @@ div.style.display = 'block';
 div.style.display = 'none';
 
  if (inddata.value.indexOf('\n') >= 0) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	kladdefelt.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 }
 

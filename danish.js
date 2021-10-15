@@ -4,9 +4,9 @@
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
 // V 1.3 - 2019-10-10: About 10 new dictionaries, address updates, bugfixes
 // V 1.4 - 2019-10-11: Virtual keyboard automatically turned to OCS
-// Read more: https://podolak.net/en/bookmarklets
+// V 1.5 - 2021-10-14: Moved bigger.css into danish.js
+// Read more: https://pod-o-mart.github.io/keyboardBookmarklets
 // Author: Martin Podolak
-// Contact: www.podolak.net
 // This work is licensed under the GNU General Public License v3.0
 
 var kblang = { lang : "Dansk" };
@@ -67,7 +67,9 @@ inddata.setAttribute("onkeypress", "inputenter(event)");
 
 function inputenter(event) {
 if (event.keyCode == 13) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	var element = document.getElementById('texto'),
 	style = window.getComputedStyle(element),
 	height = style.getPropertyValue('height');
@@ -79,7 +81,9 @@ if (event.keyCode == 13) {
 
 var f = t.toString();
  if (f.indexOf('\n') >= 0) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 
 inddata.id="texto";
@@ -413,7 +417,9 @@ spanoben.appendChild(spansubtitle);
 ordbogform.appendChild(spanoben);
 
 function bigger2() {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 
 //	#2: Call here the URLs which have been declared above.
@@ -557,6 +563,8 @@ div.style.display = 'block';
 div.style.display = 'none';
 
  if (inddata.value.indexOf('\n') >= 0) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 }

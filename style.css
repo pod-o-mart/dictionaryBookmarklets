@@ -139,8 +139,76 @@ visibility: hidden;
 * End Vanilla CSS
 */
 
+@font-face {
+    font-family: 'Monomakh Unicode';
+    src: url('https://sci.ponomar.net/fonts/MonomakhUnicode.eot');
+    src: url('https://sci.ponomar.net/fonts/MonomakhUnicode.eot?#iefix') format('embedded-opentype'),
+	url('https://sci.ponomar.net/fonts/MonomakhUnicode.woff2') format('woff2'),
+	url('https://sci.ponomar.net/fonts/MonomakhUnicode.woff') format('woff'),
+	url('https://sci.ponomar.net/fonts/MonomakhUnicode.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'FiraSlav';
+    src: url('https://sci.ponomar.net/fonts/FiraSlav-Regular.eot');
+    src: url('https://sci.ponomar.net/fonts/FiraSlav-Regular.eot?#iefix') format('embedded-opentype'),
+	url('https://sci.ponomar.net/fonts/FiraSlav-Regular.woff2') format('woff2'),
+	url('https://sci.ponomar.net/fonts/FiraSlav-Regular.woff') format('woff'),
+	url('https://sci.ponomar.net/fonts/FiraSlav-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arimo';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Arimo'),
+    url('https://fonts.cdnfonts.com/s/12350/Arimo-Regular.woff2') format('woff2'),
+    url('https://fonts.cdnfonts.com/s/12350/Arimo-Regular.woff') format('woff'),
+    url('https://fonts.cdnfonts.com/s/12350/Arimo-Regular.ttf') format('truetype');
+}
+
+
+
+
+
 #ordbog, .ordbog-indhold, #ordbogform, #inputordbog, #texto, #texto2, #texto3, .oben, .spantitle, .linktitle, input#texto, input#texto2, input#texto3, .lupe, .spantitle, .spansubtitle, .dictsubtitle {
 font: normal normal 18px verdana, sans-serif !important;
+}
+
+.dicts_notes_font, .dicts_notes_font > span, .dicts_notes_font > label {
+font: normal normal 12px verdana, sans-serif !important;
+}
+
+.dictsubtitle, .dictsubtitle * {
+font: normal normal 10px verdana, sans-serif !important;
+}
+
+.monomakhfont {
+font: normal normal 1.5em "Monomakh Unicode", sans-serif !important;
+}
+
+.firaslavfont {
+font: normal normal 1.5em "FiraSlav", sans-serif !important;
+}
+
+.arimofont {
+font: normal normal 1.5em "Arimo", sans-serif !important;
+}
+
+.systemfont {
+font: normal normal 1.5em serif, sans-serif !important;
+}
+
+#translitinput, #translitoutput {
+font: normal normal normal 12px verdana, sans-serif !important;
+}
+
+.minimer, .luk {
+font: normal normal bold 28px verdana, sans-serif !important;
 }
 
 textarea {
@@ -237,8 +305,6 @@ overflow:hidden;
 position:relattve;
 background-color:white;
 cursor:text;
-height:32px;
-width:80%;
 }
 
 #texto {
@@ -261,7 +327,6 @@ margin-bottom:5px;
 .spantitle {
 padding: 0;
 color: lightgrey;
-width:100%;
 font-weight: bold !important;
 }
 
@@ -297,14 +362,17 @@ color:white;
 text-shadow: 3px 2px 10px black;
 }
 
+/*
 .spantitle {
 padding-left:20px;
 }
+*/
 
 .spansubtitle {
 padding-left:20px;
 color:lightgrey;
 font: normal normal bold 10px verdana, sans-serif !important;
+text-decoration:underline;
 display:inline;
 text-shadow: 3px 2px 10px black;
 }
@@ -314,7 +382,7 @@ margin-top:7px;
 margin-bottom:7px;
 color:lightgrey;
 font: normal normal bold 10px verdana, sans-serif !important;
-//display:block;
+display:block;
 text-align:left;
 text-shadow: 3px 2px 10px black;
 }
@@ -352,4 +420,53 @@ color:white;
 
 #ordbogklein a:hover {
 text-decoration: underline;
+cursor:nw-resize;
+}
+
+span.minimer {
+cursor:se-resize!important;
+}
+
+.dicts_notes_font {
+color: lightgrey;
+font: normal normal bold 10px verdana, sans-serif !important;
+text-shadow: 3px 2px 10px black;
+}
+
+.slavNotepad {
+width:100%!important;
+height:150px!important;
+font-size:1.2em;
+}
+
+.dicts_notes_font {
+font:Monomakh Unicode!important;
+}
+
+.dicts_notes_mode_div {
+margin:0;
+padding:0;
+border:0;
+display:inline-flex;
+justify-content:flex-start;
+width:max-width;
+}
+
+.dicts_notes_reiter, .dicts_notes_reiter_titel {
+margin:0 1px 0 1px;
+padding:5px;
+color:lightgrey;
+font: normal normal bold 10px verdana, sans-serif !important;
+text-shadow: 3px 2px 10px black;
+
+}
+
+.dicts_notes_reiter {
+border:1px solid black;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.dicts_notes_reiter:hover {
+border:1px solid white;
 }

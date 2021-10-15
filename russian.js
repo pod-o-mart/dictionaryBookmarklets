@@ -4,9 +4,9 @@
 // V 1.2 - 2017-01-10: minor adjustments for highlighted text, prevent multiple load of script
 // V 1.3 - 2019-10-10: Dictionary address updates
 // V 1.4 - 2019-10-11: Virtual keyboard automatically turned to Russian
-// Read more: https://podolak.net/en/bookmarklets
+// V 1.5 - 2021-10-14: Moved bigger.css into russian.js
+// Read more: https://pod-o-mart.github.io/keyboardBookmarklets
 // Author: Martin Podolak
-// Contact: www.podolak.net
 // This work is licensed under the GNU General Public License v3.0
 
 var kblang = { lang : "\u0420\u0443\u0441\u0441\u043a\u0438\u0439" };
@@ -96,7 +96,9 @@ inddata.setAttribute("onkeypress", "inputenter(event)");
 
 function inputenter(event) {
 if (event.keyCode == 13) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	var element = document.getElementById('texto'),
 	style = window.getComputedStyle(element),
 	height = style.getPropertyValue('height');
@@ -108,7 +110,9 @@ if (event.keyCode == 13) {
 
 var f = t.toString();
  if (f.indexOf('\n') >= 0) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 
 inddata.id="texto";
@@ -432,7 +436,7 @@ divinnen.appendChild(ordbogform);
 var textminimer = document.createTextNode('_');
 var spanminimer = document.createElement('span');
 spanminimer.setAttribute("class", "minimer");
-spanminimer.title ="Minimize dictionaries window to the upper right corner (keeps input)";
+spanminimer.title ="Minimize dictionaries window to the lower right corner (keeps input)";
 spanminimer.appendChild(textminimer);
 divinnen.appendChild(spanminimer);
 divinnen.appendChild(ordbogform);
@@ -670,7 +674,9 @@ function functiontranslit() {
 	}
 
 function bigger2() {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 	
 var button2 = document.createElement('input');
@@ -837,7 +843,9 @@ div.style.display = 'block';
 div.style.display = 'none';
 
  if (inddata.value.indexOf('\n') >= 0) {
-	loadjscssfile(ordbogurl+"bigger.css", "css");
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
 	}
 }
 
