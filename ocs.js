@@ -5,9 +5,12 @@
 // V 1.2 - 2019-10-10: New keyboard codepage, dictionary address updates, minor bugfixes
 // V 1.3 - 2019-10-11: Virtual keyboard automatically turned to OCS
 // V 1.4 - 2021-10-15: Old Cyrillic notepad including font operations added
+// V 1.5 - 2022-01-01: added monumentaserbica.branatomic.com, Syntacticus dictionaries; removed dic.academic.ru; updated nevmenandr.net
 // Read more: https://pod-o-mart.github.io/slavonicBookmarklets
 // Author: Martin Podolak
 // This work is licensed under the MIT License https://github.com/pod-o-mart/keyboardBookmarklets/blob/master/LICENSE
+
+var version = "1.5 - 2022-01-01";
 
 var kblang = { lang : "\u{421}\u{43B}\u{43E}\u{432}\u{463}\u{43D}\u{44C}\u{441}\u{43A}\u{44A}" };
 if(!document.getElementById("ordbogform"))
@@ -123,19 +126,19 @@ inddata.value =t;
 
 //	#1: The URLs. Be aware of the ascending numbering and do not forget to call them below at #2
 
-var input18 = document.createElement("input");
-input18.value = 'Словарь древнерусского языка (XI-XIV вв.)';
-input18.title = "@Академик.ru";
-input18.type = "button";
-input18.id = "inputordbog";
-input18.onclick = function(){suche('http://dic.academic.ru/searchall.php?s=1&d=1&SWord=');return false;};
-
 var input32 = document.createElement("input");
 input32.onclick = function(){suche("https://liturcorpora.ru/ruscorpora/find/?q=");return false;};
 input32.value = "Словарь Полякова";
 input32.title = "liturcorpora.ru";
 input32.type = "button";
 input32.id = "inputordbog";
+
+var input16 = document.createElement("input");
+input16.onclick = function(){suche("http://monumentaserbica.branatomic.com/mikl2/main.php?stype=a&wt=all&lterm=&ltype=b&submit=Search&wterm=");return false;};
+input16.value = "Paleoslovenico";
+input16.title = "OCS - Greek/Latin Dictionary";
+input16.type = "button";
+input16.id = "inputordbog";
 
 var input19 = document.createElement("input");
 input19.onclick = function(){suche("https://ordbog.oesteuropastudier.dk/index.php?a=srch&source=opensearch&q=");return false;};
@@ -173,7 +176,7 @@ input23.type = "button";
 input23.id = "inputordbog";
 
 var input24 = document.createElement("input");
-input24.onclick = function(){suche("http://www.nevmenandr.net/slovo/cword.php?w=");return false;};
+input24.onclick = function(){suche("http://nevmenandr.net/cgi-bin/slovo.py?fragm=");return false;};
 input24.value = "«Слово о полку Игореве» - Параллельный корпус";
 input24.title = "";
 input24.type = "button";
@@ -210,9 +213,23 @@ input30.id = "inputordbog";
 var input31 = document.createElement("input");
 input31.onclick = function(){suche("http://syntacticus.org/tokens?form=");return false;};
 input31.value = "Syntacticus";
-input31.title = "Treebank of early Indo-European languages";
+input31.title = "Old Church Slavonic and Old Russian in the Treebank of early Indo-European languages";
 input31.type = "button";
 input31.id = "inputordbog";
+
+var input17 = document.createElement("input");
+input17.onclick = function(){suche("http://syntacticus.org/dictionary/syntacticus:20180920:chu?lemma=");return false;};
+input17.value = "Syntacticus OCS";
+input17.title = "Old Church Slavonic: Grammatical paradigms, valency";
+input17.type = "button";
+input17.id = "inputordbog";
+
+var input18 = document.createElement("input");
+input18.onclick = function(){suche("http://syntacticus.org/dictionary/syntacticus:20180920:orv?lemma=");return false;};
+input18.value = "Syntacticus Old Russian";
+input18.title = "Dictionary, grammatical paradigms, valency";
+input18.type = "button";
+input18.id = "inputordbog";
 
 var input25 = document.createElement("input");
 input25.onclick = function(){suche("http://dic.feb-web.ru/rusdict/search/search.php?dictid[]=1&dictid[]=2&sem=&sample=&text=&pagesize=50&page=1&title=");return false;};
@@ -771,8 +788,10 @@ ordbogform.appendChild(input22);
 ordbogform.appendChild(input23);
 ordbogform.appendChild(input25);
 ordbogform.appendChild(input26);
-ordbogform.appendChild(input18);
 ordbogform.appendChild(input32);
+ordbogform.appendChild(input16);
+ordbogform.appendChild(input17);
+ordbogform.appendChild(input18);
 //ordbogform.appendChild(grammatik_title);
 //ordbogform.appendChild(input60);
 //ordbogform.appendChild(input61);
@@ -795,6 +814,11 @@ linktitle.title = "Get more information about this and other dictionary bookmark
 linktitle.href = "https://pod-o-mart.github.io/slavonicBookmarklets";
 linktitle.target = "_blank";
 ordbogform.appendChild(linktitle);
+
+var versionindicator = document.createElement('div');
+versionindicator.innerHTML = "<div style='padding: 0;color: grey;font: normal normal bold 10px verdana, sans-serif !important;float: left;white-space: nowrap;margin-top: 15px;'>Version " + version + "</div>";
+ordbogform.appendChild(versionindicator);
+
 var divaussen = document.createElement('div');
 divaussen.setAttribute("id", "ordbog");
 divaussen.appendChild(divinnen);

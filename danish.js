@@ -9,6 +9,8 @@
 // Author: Martin Podolak
 // This work is licensed under the GNU General Public License v3.0
 
+var version = "1.5 - 2021-10-14";
+
 var kblang = { lang : "Dansk" };
 if(!document.getElementById("ordbogform"))
 {
@@ -485,6 +487,10 @@ var ordbog = document.getElementById('ordbog');
 var ordbogspan = document.getElementsByClassName("luk")[0];
 var ordbogkleinspan = document.getElementsByClassName("minimer")[0];
 ordbog.style.display = "block";
+
+var versionindicator = document.createElement('div');
+versionindicator.innerHTML = "<div style='padding: 0;color: grey;font: normal normal bold 10px verdana, sans-serif !important;float: left;white-space: nowrap;margin-top: 15px;'>Version " + version + "</div>";
+ordbogform.appendChild(versionindicator);
 
 var divaussenklein = document.createElement('div');
 divaussenklein.setAttribute("id", "ordbogklein");

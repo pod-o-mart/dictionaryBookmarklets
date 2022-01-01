@@ -5,9 +5,12 @@
 // V 1.3 - 2019-10-10: Dictionary address updates
 // V 1.4 - 2019-10-11: Virtual keyboard automatically turned to Russian
 // V 1.5 - 2021-10-14: Moved bigger.css into russian.js
+// V 1.6 - 2021-12-29: Added conjugator.reverso.net and numeralonline.ru, removed morpher.ru (quality)
 // Read more: https://pod-o-mart.github.io/keyboardBookmarklets
 // Author: Martin Podolak
 // This work is licensed under the GNU General Public License v3.0
+
+var version = "1.6 - 2021-12-29";
 
 var kblang = { lang : "\u0420\u0443\u0441\u0441\u043a\u0438\u0439" };
 if(!document.getElementById("ordbogform"))
@@ -46,6 +49,8 @@ win1251 = { 1040: "%C0", 1041: "%C1", 1042: "%C2", 1043: "%C3", 1044: "%C4", 104
 // function for pages with charset UTF-8
 function suche (id){
 konvertiert = encodeURI(document.ordbogform.texto.value);
+konvertiert = konvertiert.replace("/", "-");
+konvertiert = konvertiert.replace(",", ".");
 window.open(id+ konvertiert,'_blank');}
 
 function suche2 (id){
@@ -79,6 +84,13 @@ function suche3(id) {
 function suche4 (id){
 konvertiert4 = escape(document.ordbogform.texto.value);
 window.open(id+ konvertiert4,'_blank');}
+
+// for conjugator.reverso.net only
+function suche5 (id){
+konvertiert = document.ordbogform.texto.value;
+konvertiert = konvertiert + '.html';
+window.open(id+ konvertiert,'_blank');}
+
 
 var ordbogform = document.createElement('form');
 ordbogform.id ="ordbogform";
@@ -189,6 +201,20 @@ input10.title = "Словарь ассоциаций";
 input10.type = "button";
 input10.id = "inputordbog";
 input10.onclick = function(){suche3('http://slovesa.ru/assearch?q=');return false;};
+
+var input11 = document.createElement("input");
+input11.value = 'Склонение числительных';
+input11.title = "Примеры чисел для ввода: 101 - 3.14 - 0,5 - 1/4 - 1 2/3 (1<пробел>2/3)";
+input11.type = "button";
+input11.id = "inputordbog";
+input11.onclick = function(){suche('https://numeralonline.ru/');return false;};
+
+var input19 = document.createElement("input");
+input19.value = 'Reverso Conjugation';
+input19.title = "Conjugates fintive and infinitive forms";
+input19.type = "button";
+input19.id = "inputordbog";
+input19.onclick = function(){suche5('https://conjugator.reverso.net/conjugation-russian-verb-');return false;};
 
 var input12 = document.createElement("input");
 input12.value = 'sokr.ru';
@@ -385,13 +411,6 @@ input58.title = "";
 input58.type = "button";
 input58.id = "inputordbog";
 
-var input59 = document.createElement("input");
-input59.onclick = function(){suche("http://morpher.ru/Demo.aspx?s=");return false;};
-input59.value = "Морфер";
-input59.title = "Склонение по падежам словосочетаний, определение пола по ФИО, пропись и склонение чисел, а также образование прилагательных от названий городов и стран";
-input59.type = "button";
-input59.id = "inputordbog";
-
 var input_transl1 = document.createElement("input");
 input_transl1.type = "button";
 input_transl1.value = "Google Переводчик";
@@ -453,8 +472,6 @@ lupe.appendChild(lupeinhalt);
 spanoben.appendChild(lupe);
 spanoben.appendChild(inddata);
 
-
-
 var button1 = document.createElement('input');
 button1.type = "button";
 button1.value = "увеличить / enlarge";
@@ -463,8 +480,6 @@ button1.setAttribute("class", "bigger");
 button1.title = "This will enlarge the input field";
 button1.setAttribute("onclick", "bigger2()");
 spanoben.appendChild(button1);
-
-
 
 var spantitle = document.createElement('span');
 spantitle.setAttribute("class", "spantitle");
@@ -686,11 +701,7 @@ button2.id = "inputordbog";
 button2.title = "Transliterates the text input according to selected input and output format";
 button2.setAttribute("onclick", "functiontranslit()");
 
-
-
-
 //	#2: Call here the URLs which have been declared above.
-
 
 //ordbogform.appendChild(br);
 //ordbogform.appendChild(br2);
@@ -708,7 +719,8 @@ ordbogform.appendChild(input6);
 ordbogform.appendChild(input7);
 //ordbogform.appendChild(input8);
 ordbogform.appendChild(input9);
-ordbogform.appendChild(input59);
+ordbogform.appendChild(input19);
+ordbogform.appendChild(input11);
 ordbogform.appendChild(input10);
 ordbogform.appendChild(input12);
 ordbogform.appendChild(input13);
@@ -766,6 +778,10 @@ var ordbog = document.getElementById('ordbog');
 var ordbogspan = document.getElementsByClassName("luk")[0];
 var ordbogkleinspan = document.getElementsByClassName("minimer")[0];
 ordbog.style.display = "block";
+
+var versionindicator = document.createElement('div');
+versionindicator.innerHTML = "<div style='padding: 0;color: grey;font: normal normal bold 10px verdana, sans-serif !important;float: left;white-space: nowrap;margin-top: 15px;'>Version " + version + "</div>";
+ordbogform.appendChild(versionindicator);
 
 var divaussenklein = document.createElement('div');
 divaussenklein.setAttribute("id", "ordbogklein");

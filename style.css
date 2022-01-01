@@ -340,11 +340,20 @@ white-space:nowrap;
 margin-top:15px;
 }
 
-a.linktitle:hover, a.linktitle:focus {
+a.linktitle:hover,
+a.linktitle:focus {
 text-decoration: none;
-color:lightgrey;
+color:lightgrey!important;
+text-decoration-color:lightgrey!important;
 font-weight:normal;
 font: normal normal bold 10px verdana, sans-serif !important;
+}
+
+#ordbogklein a:hover,
+#ordbogklein a:focus {
+text-decoration: none;
+color:lightgrey!important;
+text-decoration-color:lightgrey!important;
 }
 
 p.lupe {
