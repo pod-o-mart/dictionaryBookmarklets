@@ -10,7 +10,7 @@
 // Author: Martin Podolak
 // This work is licensed under the MIT License https://github.com/pod-o-mart/keyboardBookmarklets/blob/master/LICENSE
 
-var version = "1.5 - 2022-01-01";
+var version = "1.5.1 - 2022-01-03";
 
 var kblang = { lang : "\u{421}\u{43B}\u{43E}\u{432}\u{463}\u{43D}\u{44C}\u{441}\u{43A}\u{44A}" };
 if(!document.getElementById("ordbogform"))
@@ -48,36 +48,43 @@ win1251 = { 1040: "%C0", 1041: "%C1", 1042: "%C2", 1043: "%C3", 1044: "%C4", 104
 
 // function for pages with charset UTF-8
 function suche (id){
-konvertiert = encodeURI(document.ordbogform.texto.value);
-window.open(id+ konvertiert,'_blank');}
+	var konvertiert = document.ordbogform.texto.value;
+	konvertiert = konvertiert.replace("/", "-");
+	konvertiert = konvertiert.replace(/^\s+|\s+$/g, '');
+	konvertiert = encodeURI(konvertiert);
+	window.open(id+ konvertiert,'_blank');
+}
 
 // function for pages with charset windows-1251 or ISO-8859-5
 function suche3(id) {
-  var texto;
-  var ordbogform;
-  var o_text = document.ordbogform.texto.value;
-  var i;
-  var out="";
-  var debug="";
-  var oldchar;
-  var newchar;
-  for (i=0; i<o_text.length; i++) {
-    oldchar = o_text.charCodeAt(i);
-    newchar = win1251[oldchar];
-    if (newchar==undefined) {
-        newchar = oldchar
-    } 
-    out=out+String(newchar)
-  }
-  document.ordbogform.texto.value = out;
-  window.open(id+ document.ordbogform.texto.value,'_blank');
-  document.ordbogform.texto.value = o_text;
+	var texto;
+	var ordbogform;
+	var o_text = document.ordbogform.texto.value;
+	var i;
+	var out="";
+	var debug="";
+	var oldchar;
+	var newchar;
+	for (i=0; i<o_text.length; i++) {
+		oldchar = o_text.charCodeAt(i);
+		newchar = win1251[oldchar];
+		if (newchar==undefined) {
+			newchar = oldchar
+		} 
+		out=out+String(newchar)
+	}
+	out = out.replace(/^\s+|\s+$/g, '');
+	window.open(id+ out,'_blank');
 }
 
 // function for pages with charset windows-1252 or ISO-8859-1
 function suche4 (id){
-konvertiert4 = escape(document.ordbogform.texto.value);
-window.open(id+ konvertiert4,'_blank');}
+	var konvertiert4 = document.ordbogform.texto.value;
+	konvertiert4 = konvertiert4.replace(/^\s+|\s+$/g, '');
+	konvertiert4 = konvertiert4.replace("/", "-");
+	konvertiert4 = escape(konvertiert4);
+	window.open(id+ konvertiert4,'_blank');
+}
 
 var ordbogform = document.createElement('form');
 ordbogform.id ="ordbogform";
@@ -93,20 +100,8 @@ inddata.setAttribute("cols", "15");
 inddata.value =t;
 inddata.setAttribute("onclick", "this.parentNode.submit();");
 inddata.setAttribute("onkeypress", "inputenter(event)");
-
-function inputenter(event) {
-if (event.keyCode == 13) {
-	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
-	kladdefelt.setAttribute("style", "height:140px !important;width:80% !important;");
-	button1.setAttribute("style", "display:none !important;");
-	var element = document.getElementById('texto'),
-	style = window.getComputedStyle(element),
-	height = style.getPropertyValue('height');
-	if (height == "26px") {
-		self.VKI_close();
-		}
- }
-}
+inddata.setAttribute("oninput", "inputwrap()");
+inddata.setAttribute("onmousedown", "inputwrap()");
 
 var f = t.toString();
  if (f.indexOf('\n') >= 0) {
@@ -123,6 +118,37 @@ s.src=ordbogurl+'keyboard-slav.js?,true,false';
 document.body.appendChild(s);void(null);
 inddata.setAttribute("class", "keyboardInput");
 inddata.value =t;
+
+function inputenter(event) {
+if (event.keyCode == 13) {
+	inddata.setAttribute("style", "height:140px !important;width:30% !important;");
+	kladdefelt.setAttribute("style", "height:140px !important;width:80% !important;");
+	texto.setAttribute("style", "height:140px !important;width:80% !important;");
+	button1.setAttribute("style", "display:none !important;");
+	var element = document.getElementById('texto'),
+	style = window.getComputedStyle(element),
+	height = style.getPropertyValue('height');
+	if (height == "26px") {
+		self.VKI_close();
+		}
+	}
+}
+
+function inputwrap() {
+	var searchText = document.getElementById("texto").value;
+	var inputLength = searchText.length;
+	if (inputLength > 16) {
+		inddata.setAttribute("style", "height:140px !important;width:30% !important;min-height:140px!important;max-height:140px!important;");
+		texto.setAttribute("style", "height:140px !important;width:80% !important;min-height:140px!important;max-height:140px!important;");
+		button1.setAttribute("style", "display:none !important;");
+		var element = document.getElementById('texto'),
+		style = window.getComputedStyle(element),
+		height = style.getPropertyValue('height');
+		if (height == "26px") {
+			self.VKI_close();
+		}
+	} 
+}
 
 //	#1: The URLs. Be aware of the ascending numbering and do not forget to call them below at #2
 
@@ -833,6 +859,7 @@ divaussenklein.setAttribute("id", "ordbogklein");
 var divaussenkleina = document.createElement('a');
 divaussenkleina.title = "click to restore dictionaries window / восстановить окно";
 divaussenkleina.setAttribute("onmousedown", "display()");
+inddata.setAttribute("onclick", "inputwrap()");
 divaussenklein.appendChild(divaussenkleina);
 var divaussenkleintext = document.createTextNode("OCS dicts");
 divaussenkleina.appendChild(divaussenkleintext);
@@ -922,3 +949,4 @@ texto.addEventListener('input', function () {
 ordbogform.addEventListener('click', function () {
     dictform1a.value = inddata.value;
 });
+inputwrap();
