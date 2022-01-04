@@ -6,11 +6,12 @@
 // V 1.3 - 2019-10-11: Virtual keyboard automatically turned to OCS
 // V 1.4 - 2021-10-15: Old Cyrillic notepad including font operations added
 // V 1.5 - 2022-01-01: added monumentaserbica.branatomic.com, Syntacticus dictionaries; removed dic.academic.ru; updated nevmenandr.net
+// V 1.6 - 2022-01-04: Stylesheet and JS functionality improvements
 // Read more: https://pod-o-mart.github.io/slavonicBookmarklets
 // Author: Martin Podolak
 // This work is licensed under the MIT License https://github.com/pod-o-mart/keyboardBookmarklets/blob/master/LICENSE
 
-var version = "1.5.1 - 2022-01-03";
+var version = "1.6 - 2022-01-04";
 
 var kblang = { lang : "\u{421}\u{43B}\u{43E}\u{432}\u{463}\u{43D}\u{44C}\u{441}\u{43A}\u{44A}" };
 if(!document.getElementById("ordbogform"))
@@ -94,7 +95,6 @@ ordbogform.setAttribute("onsubmit", "return false");
 ordbogform.setAttribute("style", "display:block;");
 ordbogform.onsubmit="return false";
 var inddata = document.createElement('textarea');
-inddata.setAttribute("style", "margin-left:7px;");
 inddata.setAttribute("rows", "1"); 
 inddata.setAttribute("cols", "15"); 
 inddata.value =t;
@@ -137,7 +137,7 @@ if (event.keyCode == 13) {
 function inputwrap() {
 	var searchText = document.getElementById("texto").value;
 	var inputLength = searchText.length;
-	if (inputLength > 16) {
+	if (inputLength > 20) {
 		inddata.setAttribute("style", "height:140px !important;width:30% !important;min-height:140px!important;max-height:140px!important;");
 		texto.setAttribute("style", "height:140px !important;width:80% !important;min-height:140px!important;max-height:140px!important;");
 		button1.setAttribute("style", "display:none !important;");
@@ -320,12 +320,12 @@ divinnen.appendChild(spansubtitle_notepad);
 var textluk = document.createTextNode('×');
 var spanluk = document.createElement('span');
 spanluk.setAttribute("class", "luk");
-spanluk.title ="close window ― CAUTION: deletes all input / закрыть окно ― ОСТОРОЖНО: весь ввод текста будет удален";
+spanluk.title ="close window ― CAUTION: deletes all input / закрыть окно ― ОСТОРОЖНО: весь вводимый текст будет удалён";
 spanluk.appendChild(textluk);
 var textminimer = document.createTextNode('_');
 var spanminimer = document.createElement('span');
 spanminimer.setAttribute("class", "minimer");
-spanminimer.title ="Minimize dictionaries window to the lower right corner ― keeps input / свернуть окно ― ввод текста сохраняется";
+spanminimer.title ="Minimize dictionaries window to the lower right corner ― keeps input / свернуть окно ― вводимый текст сохраняется";
 spanminimer.appendChild(textminimer);
 var close_minimize = document.createElement('div');
 close_minimize.id = "close_minimize";
@@ -566,7 +566,7 @@ kladderight.appendChild(dicts_notes_font);
 
 var dicts_notes_font_download = document.createElement('span');
 dicts_notes_font_download.className = "dictsubtitle"; 
-dicts_notes_font_download.innerHTML = "<div style='margin:20px 3px 0 3px;border:1px solid white;border-radius:3px;padding:3px 0 3px 5px;'><span style='font-weight:normal;'>In order to use your text with the font of your choice elsewhere on your computer, you will need to download the corresponding font:<br /><strong><a style='margin-top:5px;' href='https://sci.ponomar.net/fonts.html' target='_blank'><em>Monomakh</em></strong> and <strong><em>FiraSlav</em></strong></a><br /><a style='margin-top:5px;' href='https://fonts.google.com/specimen/Arimo?preview.text=%D0%90%EA%99%81%D1%8A%D0%B1%D1%B9%CC%81%D0%BA%D0%B0&preview.text_type=custom' target='_blank'><strong><em>Arimo</em></strong></a></span></div>";
+dicts_notes_font_download.innerHTML = "<div style='margin:20px 3px 0 3px;border:1px solid white;border-radius:3px;padding:3px 0 3px 5px;'><span style='font-weight:normal;'>In order to use your text with the font of your choice elsewhere on your computer, you will need to download the corresponding font:<br /><a style='margin-top:5px;' href='https://sci.ponomar.net/fonts.html' target='_blank'><strong><em>Monomakh</em></strong> and <strong><em>FiraSlav</em></strong></a><br /><a style='margin-top:5px;' href='https://fonts.google.com/specimen/Arimo?preview.text=%D0%90%EA%99%81%D1%8A%D0%B1%D1%B9%CC%81%D0%BA%D0%B0&preview.text_type=custom' target='_blank'><strong><em>Arimo</em></strong></a></span></div>";
 kladderight.appendChild(dicts_notes_font_download);
 
 function function_font_monomakh(){
@@ -625,6 +625,7 @@ numerals_title.appendChild(numerals_title_inhalt);
 var br = document.createElement('br');
 var br2 = document.createElement('br');
 var br3 = document.createElement('br');
+var br4 = document.createElement('br');
 //input
 var translitinput = document.createElement('select');
 translitinput.setAttribute("id", "translitinput");
@@ -803,9 +804,10 @@ function bigger2() {
 ordbogform.appendChild(transliteration_title);
 ordbogform.appendChild(functiontranslit);
 ordbogform.appendChild(br);
+ordbogform.appendChild(br2);
 ordbogform.appendChild(numerals_title);
 ordbogform.appendChild(dictform1);
-ordbogform.appendChild(br2);
+ordbogform.appendChild(br3);
 ordbogform.appendChild(historisk_ordbog_title);
 ordbogform.appendChild(input19);
 ordbogform.appendChild(input20);
@@ -828,7 +830,7 @@ ordbogform.appendChild(input29);
 ordbogform.appendChild(input30);
 ordbogform.appendChild(input24);
 ordbogform.appendChild(input31);
-ordbogform.appendChild(br3);
+ordbogform.appendChild(br4);
 
 //	#2 END	///////////////////
 
@@ -839,11 +841,12 @@ linktitle.appendChild(linktitletext);
 linktitle.title = "Get more information about this and other dictionary bookmarklets / Узнать больше об этой программе";
 linktitle.href = "https://pod-o-mart.github.io/slavonicBookmarklets";
 linktitle.target = "_blank";
-ordbogform.appendChild(linktitle);
+divinnen.appendChild(linktitle);
 
 var versionindicator = document.createElement('div');
-versionindicator.innerHTML = "<div style='padding: 0;color: grey;font: normal normal bold 10px verdana, sans-serif !important;float: left;white-space: nowrap;margin-top: 15px;'>Version " + version + "</div>";
-ordbogform.appendChild(versionindicator);
+versionindicator.setAttribute("style", "padding: 0;color: grey;font: normal normal bold 10px verdana, sans-serif !important;float: left;white-space: nowrap;margin-top: 15px;");
+versionindicator.innerHTML = "Version " + version;
+divinnen.appendChild(versionindicator);
 
 var divaussen = document.createElement('div');
 divaussen.setAttribute("id", "ordbog");

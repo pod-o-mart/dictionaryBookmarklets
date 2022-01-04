@@ -5,11 +5,12 @@
 // V 1.3 - 2019-10-10: About 10 new dictionaries, address updates, bugfixes
 // V 1.4 - 2019-10-11: Virtual keyboard automatically turned to OCS
 // V 1.5 - 2021-10-14: Moved bigger.css into danish.js
+// V 1.6 - 2022-01-04: Stylesheet and JS functionality improvements
 // Read more: https://pod-o-mart.github.io/keyboardBookmarklets
 // Author: Martin Podolak
 // This work is licensed under the GNU General Public License v3.0
 
-var version = "1.5.1 - 2022-01-03";
+var version = "1.6 - 2022-01-04";
 
 var kblang = { lang : "Dansk" };
 if(!document.getElementById("ordbogform"))
@@ -107,7 +108,7 @@ if (event.keyCode == 13) {
 function inputwrap() {
 	var searchText = document.getElementById("texto").value;
 	var inputLength = searchText.length;
-	if (inputLength > 16) {
+	if (inputLength > 20) {
 		inddata.setAttribute("style", "height:140px !important;width:30% !important;min-height:140px!important;max-height:140px!important;");
 		texto.setAttribute("style", "height:140px !important;width:80% !important;min-height:140px!important;max-height:140px!important;");
 		button1.setAttribute("style", "display:none !important;");
@@ -413,6 +414,9 @@ divinnen.appendChild(ordbogform);
 var spanoben = document.createElement('span');
 spanoben.setAttribute("class", "oben");
 
+var title = document.createElement('span');
+title.setAttribute("class", "title");
+
 var lupe = document.createElement('p');
 lupe.setAttribute("class", "lupe");
 lupe.setAttribute("title", "Indtast søgeord og klik på den ønskede ordbogstjeneste");
@@ -435,13 +439,13 @@ var spantitle = document.createElement('span');
 spantitle.setAttribute("class", "spantitle");
 var texttitle = document.createTextNode('DA dicts');
 spantitle.appendChild(texttitle);
-spanoben.appendChild(spantitle);
-
+title.appendChild(spantitle);
 var spansubtitle = document.createElement('p');
 spansubtitle.setAttribute("class", "spansubtitle");
-var textsubtitle = document.createTextNode('Danske ordbøger');
+var textsubtitle = document.createTextNode('Danske ordbøger / Danish dictionaries');
 spansubtitle.appendChild(textsubtitle);
-spanoben.appendChild(spansubtitle);
+title.appendChild(spansubtitle);
+ordbogform.appendChild(title);
 ordbogform.appendChild(spanoben);
 
 function bigger2() {
@@ -504,7 +508,7 @@ linktitle.appendChild(linktitletext);
 linktitle.title = "Flere informationer og andre ordbogbookmarklets";
 linktitle.href = "https://pod-o-mart.github.io/dictionaryBookmarklets";
 linktitle.target = "_blank";
-ordbogform.appendChild(linktitle);
+divinnen.appendChild(linktitle);
 var divaussen = document.createElement('div');
 divaussen.setAttribute("id", "ordbog");
 divaussen.appendChild(divinnen);
@@ -515,8 +519,9 @@ var ordbogkleinspan = document.getElementsByClassName("minimer")[0];
 ordbog.style.display = "block";
 
 var versionindicator = document.createElement('div');
-versionindicator.innerHTML = "<div style='padding: 0;color: grey;font: normal normal bold 10px verdana, sans-serif !important;float: left;white-space: nowrap;margin-top: 15px;'>Version " + version + "</div>";
-ordbogform.appendChild(versionindicator);
+versionindicator.setAttribute("style", "padding: 0;color: grey;font: normal normal bold 10px verdana, sans-serif !important;float: left;white-space: nowrap;margin-top: 15px;");
+versionindicator.innerHTML = "Version " + version;
+divinnen.appendChild(versionindicator);
 
 var divaussenklein = document.createElement('div');
 divaussenklein.setAttribute("id", "ordbogklein");
