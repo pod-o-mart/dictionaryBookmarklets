@@ -344,7 +344,6 @@ spanoben.setAttribute("class", "oben");
 var lupe = document.createElement('p');
 lupe.setAttribute("class", "lupe");
 lupe.setAttribute("title", "Input / Ввод ключевого слова");
-lupe.style.transform="rotate(45deg)"
 var lupeinhalt = document.createTextNode('⚲');
 lupe.appendChild(lupeinhalt);
 spanoben.appendChild(lupe);

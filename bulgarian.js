@@ -411,7 +411,6 @@ title.setAttribute("class", "title");
 var lupe = document.createElement('p');
 lupe.setAttribute("class", "lupe");
 lupe.setAttribute("title", "Enter keyword and choose a dictionary by clicking the according button");
-lupe.style.transform="rotate(45deg)"
 var lupeinhalt = document.createTextNode('⚲');
 lupe.appendChild(lupeinhalt);
 spanoben.appendChild(lupe);

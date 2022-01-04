@@ -400,9 +400,11 @@ bottom: 0;
 font-size: 28px !important;
 color: white;
 max-height: 1px;
+text-shadow: 2px 0px 0px #4B4B4B, 1px 0px 0px #4B4B4B;
+transform: rotate(45deg)
 }
 
-.lupe, .spantitle {
+.spantitle {
 text-shadow: 3px 2px 10px black;
 }
 

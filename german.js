@@ -482,7 +482,6 @@ title.setAttribute("class", "title");
 var lupe = document.createElement('p');
 lupe.setAttribute("class", "lupe");
 lupe.setAttribute("title", "Suchbegriff eintragen oder ändern");
-lupe.style.transform="rotate(45deg)"
 var lupeinhalt = document.createTextNode('⚲');
 lupe.appendChild(lupeinhalt);
 spanoben.appendChild(lupe);
